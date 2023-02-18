@@ -638,6 +638,39 @@ class AddContact(APIView):
             return Response(contact.data)
         return Response(contact.errors)
 
+class UpdeateContact(APIView):
+    def post(self, request:Request, id):
+        """
+        input:json->
+        {
+            "branches_name": (option)str,
+            "datetime":(option)ditetime,
+            "address":(option)str,
+            "menefer": (option)str,
+            "main_contacts": (option)int
+        }
+        return:json->
+        {
+            "id":int,
+            "branches_name": str,
+            "datetime":ditetime,
+            "address":str,
+            "menefer": str,
+            "main_contacts": int
+        }"""
+        data = request.data
+        contact_filter = Contact.objects.get(id = id)
+        updeate_contact = contact_filter
+        updeate_contact.branches_name = data.get("branches_name", updeate_contact.branches_name)
+        updeate_contact.address = data.get("address", updeate_contact.address)
+        updeate_contact.datetime = data.get("datetime", updeate_contact.datetime)
+        updeate_contact.menefer = data.get("branches_name", updeate_contact.menefer)
+        updeate_contact.main_contacts = data.get("branches_name", updeate_contact.main_contacts)
+        updeate_contact.save()
+        contact = ContactSerializers(updeate_contact)
+        return Response(contact.data)
+
+
 
 
 

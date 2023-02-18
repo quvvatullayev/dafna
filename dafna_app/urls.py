@@ -26,6 +26,7 @@ from .views import(
     GetMainContact,
     DeleteMainContact,
     AddContact,
+    UpdeateContact,
 )
 
 urlpatterns = [
@@ -55,4 +56,5 @@ urlpatterns = [
     path('get_main_contact/', GetMainContact.as_view()),
     path('delet_main_contact/<int:id>/', DeleteMainContact.as_view()),
     path('add_contact/', AddContact.as_view()),
+    path('updeate_contact/<int:id>/', UpdeateContact.as_view()),
 ]
