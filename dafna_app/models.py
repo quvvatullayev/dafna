@@ -38,7 +38,6 @@ class Love(models.Model):
         return self.prodouct.name
     
 class Cart(models.Model):
-    name = models.TextField(max_length=225)
     prodouct = models.ForeignKey(Prodouct, models.CASCADE)
 
     def __str__(self) -> str:
