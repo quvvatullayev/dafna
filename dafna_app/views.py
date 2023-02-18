@@ -348,6 +348,15 @@ class AddLove(APIView):
             return Response(love.data)
         return Response(love.errors)
 
+class DeleteLove(APIView):
+    def get(self, requeat:Request, id):
+        """
+        input:get request /dafna_app/delete_love/id/
+        return:{"OK delete":"200"}
+        """
+        love = Love.objects.get(id=id)
+        love.delete
+        return Response({"OK delete":"200"})
 
 
 
