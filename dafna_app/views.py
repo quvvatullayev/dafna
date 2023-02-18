@@ -680,6 +680,30 @@ class DeleteContact(APIView):
         contacts.delete
         return Response({"OK delete":"200"})
 
+class GetContact(APIView):
+    def get(self, request:Request):
+        """
+        input:get request
+        return:json->
+        {
+            "contacts": [
+                {
+                    "id": int,
+                    "branches_name": str,
+                    "address": str,
+                    "datetime": datetime str,
+                    "menefer": str,
+                    "main_contacts": int
+                }
+            ]
+        }
+        """
+        contact_all = Contact.objects.all()
+        contact = ContactSerializers(contact_all, many = True)
+        data = {
+            'contacts':contact.data
+        }
+        return Response(data)
 
 
 
