@@ -32,10 +32,10 @@ class Prodouct(models.Model):
         return self.name
     
 class Love(models.Model):
-    score = models.ForeignKey(Prodouct, models.CASCADE)
+    prodouct = models.ForeignKey(Prodouct, models.CASCADE)
 
     def __str__(self) -> str:
-        return self.score.name
+        return self.prodouct.name
     
 class Cart(models.Model):
     name = models.TextField(max_length=225)
