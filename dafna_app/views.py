@@ -330,6 +330,24 @@ class DeleteProdouct(APIView):
         prodouct.delete()
         return Response({"OK delete":"200"})
 
+class AddLove(APIView):
+    def post(self, request:Request):
+        """input:json->
+            {
+                "prodouct": int product id
+            }
+           return:json->
+            {
+                "prodouct": int product id
+            } 
+        """
+        data = request.data
+        love = LoveSerializers(data=data)
+        if love.is_valid():
+            love.save()
+            return Response(love.data)
+        return Response(love.errors)
+
 
 
 
