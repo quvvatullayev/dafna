@@ -18,6 +18,7 @@ from .views import(
     DeleteCart,
     GetCart,
     GetLove,
+    AddVideo,
 )
 
 urlpatterns = [
@@ -38,5 +39,6 @@ urlpatterns = [
     path('add_cart/', AddCart.as_view()),
     path('delete_cart/<int:id>/', DeleteCart.as_view()),
     path('get_cart/', GetCart.as_view()),
-    path('get_love/', GetLove.as_view())
+    path('get_love/', GetLove.as_view()),
+    path('add_video/', AddVideo.as_view()),
 ]

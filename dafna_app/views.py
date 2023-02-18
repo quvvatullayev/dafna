@@ -350,6 +350,26 @@ class AddLove(APIView):
 
 class GetLove(APIView):
     def get(self, request:Request):
+        """
+        input:get request
+        return:json->
+        {
+            "loves": [
+                {
+                    "id": 5,
+                    "name": "Aylanadigan stol",
+                    "discrpition": "Ofis uchun Aylanadigan stollar to'plam",
+                    "img_url": "nada",
+                    "price": 4500000,
+                    "color": "qora",
+                    "manufacturer": "uz",
+                    "material": "charim",
+                    "prodouct_type": 3,
+                    "love_id": 1
+                }
+            ]
+        }
+        """
         love_filter = Love.objects.all()
         love = LoveSerializers(love_filter, many = True)
         data = {
@@ -437,6 +457,29 @@ class GetCart(APIView):
             data['carts'].append(append_data)
         return Response(data)
 
+class AddVideo(APIView):
+    def post(self, request:Request):
+        """
+        input:json->
+        {
+            "name": str,
+            "discrpition": str,
+            "video_url": str
+        }
+        return:json->
+        {
+            "id": 1,
+            "name": str,
+            "discrpition": str,
+            "video_url": str
+        }
+        """
+        data = request.data
+        video = VideoSerializers(data=data)
+        if video.is_valid():
+            video.save()
+            return Response(video.data)
+        return Response(video.errors)
 
 
 
