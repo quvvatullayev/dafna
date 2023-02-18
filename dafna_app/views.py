@@ -78,9 +78,32 @@ class UpdeateKatalog(APIView):
 
 class GetKatalog(APIView):
     def get(self, request:Request):
+        """
+        {
+            "katalogs": [
+                {
+                "id": int,
+                "name":str
+                "discrpition": str,
+                "img_url":str
+                }
+            ]
+        }
+        """
         filter_katalog = Katalog.objects.all()
         katalog = KatalogSerializer(filter_katalog, many = True)
-        return Response(katalog.data)
+        data = {"katalogs":katalog.data}
+        return Response(data)
+    
+class DeleteKatalog(APIView):
+    def get(self, request:Request, id):
+        """
+        input:get request http://127.0.0.1:8000/dafna_app/delete_katalog/<id>/
+        return:json->{"OK delete":"200"}
+        """
+        katalog = Katalog.objects.get(id = id)
+        katalog.delete()
+        return Response({"OK delete":"200"})
 
 
 
