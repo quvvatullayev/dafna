@@ -542,7 +542,19 @@ class AddMainContact(APIView):
             return Response(main_contacts.data)
         return Response(main_contacts.errors)
 
-
+class UpdeateMianContact(APIView):
+    def post(self, request:Request, id):
+        data = request.data
+        main_contacts_filter = Main_contacts.objects.get(id = id)
+        updeate_m_c = main_contacts_filter
+        updeate_m_c.operator = data.get('operator', updeate_m_c.operator)
+        updeate_m_c.menejer = data.get("menejer", updeate_m_c.menejer)
+        updeate_m_c.mebel_menejer = data.get("mebel_menejer", updeate_m_c.mebel_menejer)
+        updeate_m_c.guarantee = data.get("guarantee", updeate_m_c.guarantee)
+        updeate_m_c.email = data.get("email", updeate_m_c.email)
+        updeate_m_c.save()
+        main_contacts = MainContactsSerializers(updeate_m_c, many = False)
+        return Response(main_contacts.data)
 
 
 
