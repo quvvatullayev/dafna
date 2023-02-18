@@ -152,4 +152,36 @@ class UpdeateProdouctType(APIView):
         serializers_prodouct_type = ProdouctTypeSerializers(prodouct_type)
         return Response(serializers_prodouct_type.data)
 
+class GetProdouctType(APIView):
+    def get(self, request:Request, id):
+        """intput:request get http://127.0.0.1:8000/dafna_app/get_prodouct_type/id/
+            return:json->
+            {
+                "id": int,
+                "name":str,
+                "discrpition": str,
+                "img_url":str,
+                "prodouct_typt": [
+                    {
+                        "id": int,
+                        "name": str,
+                        "img_url": str,
+                        "katalog": int
+                    },
+                ]
+            }
+        """
+        filter_prodouct_type = Prodouct_type.objects.filter(katalog = id)
+        katalog_filter = Katalog.objects.get(id = id)
+        katalog = KatalogSerializer(katalog_filter)
+        prodouct_type = ProdouctTypeSerializers(filter_prodouct_type, many = True)
+        data = {
+            "id":katalog.data['id'],
+            "name":katalog.data['name'],
+            "discrpition":katalog.data['discrpition'],
+            "img_url":katalog.data['img_url'],
+            "prodouct_typt":prodouct_type.data
+
+        }
+        return Response(data)
 
