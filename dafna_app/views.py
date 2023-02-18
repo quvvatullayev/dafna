@@ -204,6 +204,7 @@ class AddProdouct(APIView):
         {
             "name": str,
             "discrpition": str,
+            "img_url":str
             "price":int,
             "color": str,
             "manufacturer":str,
@@ -215,6 +216,7 @@ class AddProdouct(APIView):
             "id":int
             "name": str,
             "discrpition": str,
+            "img_url":str,
             "price":int,
             "color": str,
             "manufacturer":str,
@@ -236,6 +238,7 @@ class UpdeateProdouct(APIView):
         {
             "name": (option)str,
             "discrpition": (option)str,
+            "img_url": (option)str,
             "price": (option)int,
             "color": (option)str,
             "manufacturer": (option)str,
@@ -247,6 +250,7 @@ class UpdeateProdouct(APIView):
             "id": int,
             "name": str,
             "discrpition": str,
+            "img_url":str,
             "price": int,
             "color":str,
             "manufacturer": str,
