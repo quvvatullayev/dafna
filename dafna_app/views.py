@@ -378,6 +378,16 @@ class AddCart(APIView):
             return Response(cart.data)
         return Response(cart.errors)
 
+class DeleteCart(APIView):
+    def get(self, request:Request, id):
+        """
+        input:get request /dafna_app/delete_cart/id/
+        return:{"OK delete":"200"}
+        """
+        cart = Cart.objects.get(id = id)
+        cart.delete()
+        return Response({"OK delete":"200"})
+
 
 
 
