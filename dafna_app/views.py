@@ -267,6 +267,53 @@ class UpdeateProdouct(APIView):
         prodouct = ProdouctSerializers(updeate_prodouct, many = False)
         return Response(prodouct.data)
 
+class GetProdouct(APIView):
+    def get(self, request:Request, id):
+        """
+        input:get request dafna_app/get_prodouct/id/
+        return:json->
+        {
+            "name": str,
+            "discrpition": str,
+            "img_url": str,
+            "prodouct_type": {
+                "name": str,
+                "img_url": str,
+                "prodoucts": [
+                    {
+                        "id": int,
+                        "name": str,
+                        "discrpition": str,
+                        "img_url": str,
+                        "price": int,
+                        "color": str,
+                        "manufacturer": str,
+                        "material": str,
+                        "prodouct_type": int
+                    }
+                ]
+            }
+        }
+        """
+        prodouct_filter = Prodouct.objects.filter(prodouct_type = id)
+        prodouct = ProdouctSerializers(prodouct_filter, many = True)
+        prodouct_type_filter = Prodouct_type.objects.get(id = id)
+        prodouct_type = ProdouctTypeSerializers(prodouct_type_filter, many = False)
+        print(prodouct_type.data['katalog'])
+        katalog_filter = Katalog.objects.get(id = prodouct_type.data['katalog'])
+        katalog = KatalogSerializer(katalog_filter, many = False)
+        data = {
+            'name':katalog.data['name'],
+            'discrpition':katalog.data['discrpition'],
+            'img_url':katalog.data['img_url'],
+            'prodouct_type':{
+                'name':prodouct_type.data['name'],
+                'img_url':prodouct_type.data['img_url'],
+                'prodoucts':prodouct.data
+            }
+        }
+
+        return Response(data)
 
 
 
