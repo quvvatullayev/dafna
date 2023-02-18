@@ -197,6 +197,38 @@ class DeleteProdouctType(APIView):
         prodouct_type.delete()
         return Response({"OK delete":"200"})
 
+class AddProdouct(APIView):
+    def post(self, request:Request):
+        """
+        input:json->
+        {
+            "name": str,
+            "discrpition": str,
+            "price":int,
+            "color": str,
+            "manufacturer":str,
+            "material": str,
+            "prodouct_type": int
+        }
+        return:json->
+        {
+            "id":int
+            "name": str,
+            "discrpition": str,
+            "price":int,
+            "color": str,
+            "manufacturer":str,
+            "material": str,
+            "prodouct_type": int
+        }
+        """
+        data = request.data
+        prodouct = ProdouctSerializers(data=data)
+        if prodouct.is_valid():
+            prodouct.save()
+            return Response(prodouct.data)
+        return Response(prodouct.errors)
+
 
 
 
