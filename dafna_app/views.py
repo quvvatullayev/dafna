@@ -670,6 +670,17 @@ class UpdeateContact(APIView):
         contact = ContactSerializers(updeate_contact)
         return Response(contact.data)
 
+class DeleteContact(APIView):
+    def get(self, request:Request, id):
+        """
+        input:get request /dafna_app/delete_contact/id/
+        return:{"OK delete":"200"}
+        """
+        contacts = Contact.objects.get(id = id)
+        contacts.delete
+        return Response({"OK delete":"200"})
+
+
 
 
 
