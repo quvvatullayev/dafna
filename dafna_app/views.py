@@ -79,6 +79,8 @@ class UpdeateKatalog(APIView):
 class GetKatalog(APIView):
     def get(self, request:Request):
         """
+        input:get request
+        return: json->
         {
             "katalogs": [
                 {
@@ -154,7 +156,7 @@ class UpdeateProdouctType(APIView):
 
 class GetProdouctType(APIView):
     def get(self, request:Request, id):
-        """intput:request get http://127.0.0.1:8000/dafna_app/get_prodouct_type/id/
+        """intput:request get dafna_app/get_prodouct_type/id/
             return:json->
             {
                 "id": int,
@@ -184,4 +186,22 @@ class GetProdouctType(APIView):
 
         }
         return Response(data)
+
+class DeleteProdouctType(APIView):
+    def get(self, request:Request, id):
+        """
+        input:get request dafna_app/delet_prodouct_tupe/id/
+        return:json->{"OK delete":"200"}
+        """
+        prodouct_type = Prodouct_type.objects.get(id = id)
+        prodouct_type.delete()
+        return Response({"OK delete":"200"})
+
+
+
+
+
+
+
+
 
