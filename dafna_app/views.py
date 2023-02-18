@@ -577,11 +577,40 @@ class UpdeateMainContact(APIView):
 
 class GetMainContact(APIView):
     def get(self, request:Request):
+        """
+        input:get request
+        return:json->
+        {
+            "main_contacts": [
+                {
+                    "id": int,
+                    "operator": str,
+                    "menejer": str,
+                    "mebel_menejer": str,
+                    "guarantee": int,
+                    "email":str email
+                }
+            ]
+        }
+        """
         main_contacts_all = Main_contacts.objects.all()
         main_contacts = MainContactsSerializers(main_contacts_all, many = True)
         data = {
             "main_contacts":main_contacts.data
         }
         return Response(data)
+
+class DeleteMainContact(APIView):
+    def get(self, request:Request, id):
+        """
+        input:get request /dafna_app/delete_main_contact/id/
+        return:{"OK delete":"200"}
+        """
+        main_contacts = Main_contacts.objects.get(id = id)
+        main_contacts.delete
+        return Response({"OK delete":"200"})
+
+
+
 
 
