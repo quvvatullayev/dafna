@@ -27,9 +27,51 @@ from .serializer import(
 
 class AddKatalog(APIView):
     def post(self, request:Request):
+        """
+        imput:
+            {
+                "name": str,
+                "discrpition": str,
+                "img_url":str
+            }
+        return: json ->
+            {
+                "id": int,
+                "name":str,
+                "discrpition": str,
+                "img_url":str
+            }
+        """
         data = request.data
         katalog = KatalogSerializer(data=data)
         if katalog.is_valid():
             katalog.save()
             return Response(katalog.data)
         return Response(katalog.errors)
+    
+class UpdeateKatalog(APIView):
+    def post(self, request:Request, id):
+        """
+        imput:
+            {
+                "name":(option) str ,
+                "discrpition":(option) str,
+                "img_url":(option)str
+            }
+        return: json ->
+            {
+                "id": int,
+                "name":str
+                "discrpition": str,
+                "img_url":str
+            }
+        """
+        filter_katalog = Katalog.objects.get(id = id)
+        data = request.data
+        updeate_katalog = filter_katalog
+        updeate_katalog.name = data.get('name', updeate_katalog.name)
+        updeate_katalog.discrpition = data.get('discrpition', updeate_katalog.discrpition)
+        updeate_katalog.img_url = data.get('img_url', updeate_katalog.img_url)
+        updeate_katalog.save()
+        katalog = KatalogSerializer(updeate_katalog)
+        return Response(katalog.data)
