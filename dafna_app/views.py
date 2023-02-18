@@ -105,5 +105,25 @@ class DeleteKatalog(APIView):
         katalog.delete()
         return Response({"OK delete":"200"})
 
-
+class AddProdouctType(APIView):
+    def post(self, request:Request):
+        """
+        input:json->{
+            "name": str,
+            "img_url":str,
+            "katalog":int katalog id int
+            }
+        return:json->{
+            "id":int
+            "name": str,
+            "img_url":str,
+            "katalog":int katalog id int
+            }
+        """
+        data = request.data
+        prodouct = ProdouctTypeSerializers(data=data)
+        if prodouct.is_valid():
+            prodouct.save()
+            return Response(prodouct.data)
+        return Response(prodouct.errors)
 

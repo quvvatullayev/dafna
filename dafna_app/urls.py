@@ -4,6 +4,7 @@ from .views import(
     UpdeateKatalog,
     GetKatalog,
     DeleteKatalog,
+    AddProdouctType,
 )
 
 urlpatterns = [
@@ -11,4 +12,5 @@ urlpatterns = [
     path('updeate_katalog/<int:id>/', UpdeateKatalog.as_view()),
     path('get_katalog/', GetKatalog.as_view()),
     path('delete_katalog/<int:id>/', DeleteKatalog.as_view()),
+    path('add_prodouct_type/', AddProdouctType.as_view()),
 ]
