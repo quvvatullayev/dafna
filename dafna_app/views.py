@@ -348,6 +348,21 @@ class AddLove(APIView):
             return Response(love.data)
         return Response(love.errors)
 
+class GetLove(APIView):
+    def get(self, request:Request):
+        love_filter = Love.objects.all()
+        love = LoveSerializers(love_filter, many = True)
+        data = {
+            'loves':[]
+        }
+        for i in love.data:
+            prodouct_filter = Prodouct.objects.get(id = i["prodouct"])
+            prodouct = ProdouctSerializers(prodouct_filter)
+            appendt_data = prodouct.data
+            appendt_data['love_id'] = i['id']
+            data['loves'].append(appendt_data)
+        return Response(data)
+
 class DeleteLove(APIView):
     def get(self, requeat:Request, id):
         """
@@ -418,6 +433,7 @@ class GetCart(APIView):
             prodouct_filter = Prodouct.objects.get(id = i['prodouct'])
             prodouct = ProdouctSerializers(prodouct_filter, many = False)
             append_data = prodouct.data
+            append_data['cart_id'] = i['id']
             data['carts'].append(append_data)
         return Response(data)
 
