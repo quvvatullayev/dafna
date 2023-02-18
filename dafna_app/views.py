@@ -491,7 +491,28 @@ class DeleteVideo(APIView):
         video.delete
         return Response({"OK delete":"200"})
 
-
+class GetVideo(APIView):
+    def get(self, request:Request):
+        """
+        input:get request
+        return:json->
+        {
+            "videos": [
+                {
+                    "id": int,
+                    "name": str,
+                    "discrpition":str,
+                    "video_url": str
+                }
+            ]
+        }
+        """
+        video_filter = Video.objects.all()
+        video = VideoSerializers(video_filter, many = True)
+        data = {
+            'videos':video.data
+        }
+        return Response(data)
 
 
 

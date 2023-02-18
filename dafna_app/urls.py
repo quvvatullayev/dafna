@@ -20,6 +20,7 @@ from .views import(
     GetLove,
     AddVideo,
     DeleteVideo,
+    GetVideo,
 )
 
 urlpatterns = [
@@ -43,4 +44,5 @@ urlpatterns = [
     path('get_love/', GetLove.as_view()),
     path('add_video/', AddVideo.as_view()),
     path('delete_video/<int:id>/', DeleteVideo.as_view()),
+    path('get_video/', GetVideo.as_view()),
 ]
