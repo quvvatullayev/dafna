@@ -514,7 +514,33 @@ class GetVideo(APIView):
         }
         return Response(data)
 
-
+class AddMainContact(APIView):
+    def post(self, request:Request):
+        """
+        input:json->
+        {
+            "operator": str,
+            "menejer": str,
+            "mebel_menejer": str,
+            "guarantee":int,
+            "email": str email
+        }
+        return:json->
+        {
+            "id":int,
+            "operator": str,
+            "menejer": str,
+            "mebel_menejer": str,
+            "guarantee":int,
+            "email": str email
+        }
+        """
+        data = request.data
+        main_contacts = MainContactsSerializers(data=data)
+        if main_contacts.is_valid():
+            main_contacts.save()
+            return Response(main_contacts.data)
+        return Response(main_contacts.errors)
 
 
 
