@@ -388,6 +388,38 @@ class DeleteCart(APIView):
         cart.delete()
         return Response({"OK delete":"200"})
 
+class GetCart(APIView):
+    def get(self, request:Request):
+        """
+        input:get request
+        return:json->
+        {
+            "carts": [
+                {
+                    "id": int,
+                    "name": str,
+                    "discrpition": str,
+                    "img_url": str,
+                    "price": int,
+                    "color": str,
+                    "manufacturer": str,
+                    "material": str,
+                    "prodouct_type": int
+                }
+            ]
+        }
+        """
+        cart_filter = Cart.objects.all()
+        cart = CartSerializers(cart_filter, many = True)
+        data = {
+            'carts':[]
+        }
+        for i in cart.data:
+            prodouct_filter = Prodouct.objects.get(id = i['prodouct'])
+            prodouct = ProdouctSerializers(prodouct_filter, many = False)
+            append_data = prodouct.data
+            data['carts'].append(append_data)
+        return Response(data)
 
 
 
