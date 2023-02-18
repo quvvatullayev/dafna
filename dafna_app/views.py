@@ -75,3 +75,12 @@ class UpdeateKatalog(APIView):
         updeate_katalog.save()
         katalog = KatalogSerializer(updeate_katalog)
         return Response(katalog.data)
+
+class GetKatalog(APIView):
+    def get(self, request:Request):
+        filter_katalog = Katalog.objects.all()
+        katalog = KatalogSerializer(filter_katalog, many = True)
+        return Response(katalog.data)
+
+
+
