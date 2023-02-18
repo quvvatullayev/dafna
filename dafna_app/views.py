@@ -358,6 +358,34 @@ class DeleteLove(APIView):
         love.delete
         return Response({"OK delete":"200"})
 
+class AddCart(APIView):
+    def post(self, request:Request):
+        """
+        input:json->
+            {
+                "prodouct": int
+            }
+        return:json->
+            {
+                "id":int
+                "prodouct": int
+            }
+        """
+        data = request.data
+        cart = CartSerializers(data=data)
+        if cart.is_valid():
+            cart.save()
+            return Response(cart.data)
+        return Response(cart.errors)
+
+
+
+
+
+
+
+
+
 
 
 

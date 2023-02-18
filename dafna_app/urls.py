@@ -14,6 +14,7 @@ from .views import(
     DeleteProdouct,
     AddLove,
     DeleteLove,
+    AddCart,
 )
 
 urlpatterns = [
@@ -31,4 +32,5 @@ urlpatterns = [
     path('delete_prodouct/<int:id>/', DeleteProdouct.as_view()),
     path('add_love/', AddLove.as_view()),
     path('delete_love/<int:id>/', DeleteLove.as_view()),
+    path('add_cart/', AddCart.as_view()),
 ]
