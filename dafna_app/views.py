@@ -481,6 +481,15 @@ class AddVideo(APIView):
             return Response(video.data)
         return Response(video.errors)
 
+class DeleteVideo(APIView):
+    def get(self, request:Request, id):
+        """
+        input:get request /dafna_app/delete_video/id/
+        return:{"OK delete":"200"}
+        """
+        video = Video.objects.get(id = id)
+        video.delete
+        return Response({"OK delete":"200"})
 
 
 
