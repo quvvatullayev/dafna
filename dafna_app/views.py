@@ -320,7 +320,15 @@ class GetProdouct(APIView):
 
         return Response(data)
 
-
+class DeleteProdouct(APIView):
+    def get(self, request:Request, id):
+        """
+        input:get request dafna_app/delete_prodouct/id/
+        return:json->{"OK delete":"200"}
+        """
+        prodouct = Prodouct.objects.get(id = id)
+        prodouct.delete()
+        return Response({"OK delete":"200"})
 
 
 
