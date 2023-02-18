@@ -610,6 +610,33 @@ class DeleteMainContact(APIView):
         main_contacts.delete
         return Response({"OK delete":"200"})
 
+class AddContact(APIView):
+    def post(self, request:Request):
+        """
+        input:json->
+        {
+            "branches_name": str,
+            "datetime":(option)ditetime,
+            "address":str,
+            "menefer": str,
+            "main_contacts": int
+        }
+        return:json->
+        {
+            "id":int,
+            "branches_name": str,
+            "datetime":ditetime,
+            "address":str,
+            "menefer": str,
+            "main_contacts": int
+        }
+        """
+        data = request.data
+        contact = ContactSerializers(data=data)
+        if contact.is_valid():
+            contact.save()
+            return Response(contact.data)
+        return Response(contact.errors)
 
 
 

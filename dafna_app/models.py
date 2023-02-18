@@ -64,7 +64,7 @@ class Main_contacts(models.Model):
 class Contact(models.Model):
     branches_name = models.TextField(max_length=225)
     address = models.TextField(max_length=225)
-    datetime = models.DateTimeField(auto_now=True, blank=True, null=True)
+    datetime = models.DateTimeField(auto_now=True, blank=True)
     menefer = models.TextField(max_length=225)
     main_contacts = models.ForeignKey(Main_contacts, models.CASCADE)
 
