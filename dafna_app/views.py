@@ -127,3 +127,29 @@ class AddProdouctType(APIView):
             return Response(prodouct.data)
         return Response(prodouct.errors)
 
+class UpdeateProdouctType(APIView):
+    def post(self, request:Request, id):
+        """
+        input:json->
+        {
+            "name":(options)str,
+            "img_url": (options)str,
+        }
+        return:json->
+        {
+            "id": int,
+            "name":str,
+            "img_url": str,
+            "katalog": int
+        }
+        """
+        filter_prodouct_type = Prodouct_type.objects.get(id = id)
+        data = request.data
+        prodouct_type = filter_prodouct_type
+        prodouct_type.name = data.get('name', prodouct_type.name)
+        prodouct_type.img_url = data.get('img_url', prodouct_type.img_url)
+        prodouct_type.save()
+        serializers_prodouct_type = ProdouctTypeSerializers(prodouct_type)
+        return Response(serializers_prodouct_type.data)
+
+
