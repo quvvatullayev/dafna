@@ -229,6 +229,43 @@ class AddProdouct(APIView):
             return Response(prodouct.data)
         return Response(prodouct.errors)
 
+class UpdeateProdouct(APIView):
+    def post(self, request:Request, id):
+        """
+        input:post request
+        {
+            "name": (option)str,
+            "discrpition": (option)str,
+            "price": (option)int,
+            "color": (option)str,
+            "manufacturer": (option)str,
+            "material": (option)str,
+            "prodouct_type": (option)int
+        }
+        return:json->
+        {
+            "id": int,
+            "name": str,
+            "discrpition": str,
+            "price": int,
+            "color":str,
+            "manufacturer": str,
+            "material": str,
+            "prodouct_type": int
+        }
+        """
+        filter_prodouct = Prodouct.objects.get(id = id)
+        updeate_prodouct = filter_prodouct
+        data = request.data
+        updeate_prodouct.name = data.get('name', updeate_prodouct.name)
+        updeate_prodouct.discrpition = data.get('discrpition', updeate_prodouct.discrpition)
+        updeate_prodouct.price = data.get('price', updeate_prodouct.price)
+        updeate_prodouct.color = data.get('color', updeate_prodouct.color)
+        updeate_prodouct.manufacturer = data.get('manufacturer', updeate_prodouct.manufacturer)
+        updeate_prodouct.material = data.get('material', updeate_prodouct.material)
+        updeate_prodouct.save()
+        prodouct = ProdouctSerializers(updeate_prodouct, many = False)
+        return Response(prodouct.data)
 
 
 
