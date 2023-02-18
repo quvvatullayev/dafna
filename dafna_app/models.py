@@ -21,6 +21,7 @@ class Prodouct_type(models.Model):
 class Prodouct(models.Model):
     name = models.TextField(max_length=225)
     discrpition = models.CharField(max_length=225)
+    img_url = models.TextField(max_length=225)
     price = models.IntegerField()
     color = models.TextField(max_length=25)
     manufacturer = models.TextField(max_length=25)
