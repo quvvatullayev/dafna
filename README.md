@@ -2,7 +2,7 @@
 
 
 ### Dafna
-<h1>base url <a href='https://ogabek007.pythonanywhere.com'><u><i>https://ogabek007.pythonanywhere.com</i></a></a></h1>
+<h1>base url <a href='https://ogabek007.pythonanywhere.com'><u><i>https://ogabek007.pythonanywhere.com/</i></a></a></h1>
 
 | method | endpoint | descriptoin |
 |--------|----------|-------------|
