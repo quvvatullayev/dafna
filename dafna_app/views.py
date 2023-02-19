@@ -338,12 +338,19 @@ class AddLove(APIView):
             }
            return:json->
             {
+                "id":int
                 "prodouct": int product id
             } 
         """
         data = request.data
         love = LoveSerializers(data=data)
-        if love.is_valid():
+        love_all = Love.objects.all()
+        love_all_data = LoveSerializers(love_all, many = True)
+        prodouct_list = []
+        for i in love_all_data.data:
+            prodouct_list.append(i['prodouct'])
+        
+        if love.is_valid() and data['prodouct'] not in prodouct_list:
             love.save()
             return Response(love.data)
         return Response(love.errors)
