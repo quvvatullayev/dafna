@@ -400,7 +400,7 @@ class DeleteLove(APIView):
         return:{"OK delete":"200"}
         """
         love = Love.objects.get(id=id)
-        love.delete
+        love.delete()
         return Response({"OK delete":"200"})
 
 class AddCart(APIView):
@@ -497,7 +497,7 @@ class DeleteVideo(APIView):
         return:{"OK delete":"200"}
         """
         video = Video.objects.get(id = id)
-        video.delete
+        video.delete()
         return Response({"OK delete":"200"})
 
 class GetVideo(APIView):
@@ -616,7 +616,7 @@ class DeleteMainContact(APIView):
         return:{"OK delete":"200"}
         """
         main_contacts = Main_contacts.objects.get(id = id)
-        main_contacts.delete
+        main_contacts.delete()
         return Response({"OK delete":"200"})
 
 class AddContact(APIView):
@@ -673,10 +673,10 @@ class UpdeateContact(APIView):
         updeate_contact.branches_name = data.get("branches_name", updeate_contact.branches_name)
         updeate_contact.address = data.get("address", updeate_contact.address)
         updeate_contact.datetime = data.get("datetime", updeate_contact.datetime)
-        updeate_contact.menefer = data.get("branches_name", updeate_contact.menefer)
-        updeate_contact.main_contacts = data.get("branches_name", updeate_contact.main_contacts)
+        updeate_contact.menefer = data.get("menefer", updeate_contact.menefer)
+        updeate_contact.main_contacts = data.get("main_contacts", updeate_contact.main_contacts)
         updeate_contact.save()
-        contact = ContactSerializers(updeate_contact)
+        contact = ContactSerializers(updeate_contact, many = False)
         return Response(contact.data)
 
 class DeleteContact(APIView):
@@ -686,7 +686,7 @@ class DeleteContact(APIView):
         return:{"OK delete":"200"}
         """
         contacts = Contact.objects.get(id = id)
-        contacts.delete
+        contacts.delete()
         return Response({"OK delete":"200"})
 
 class GetContact(APIView):
