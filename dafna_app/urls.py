@@ -29,6 +29,7 @@ from .views import(
     UpdeateContact,
     DeleteContact,
     GetContact,
+    Sort,
 )
 
 urlpatterns = [
@@ -61,4 +62,5 @@ urlpatterns = [
     path('updeate_contact/<int:id>/', UpdeateContact.as_view()),
     path('delete_contact/<int:id>/', DeleteContact.as_view()),
     path('get_contact/', GetContact.as_view()),
+    path('sout/<str:name>/', Sort.as_view()),
 ]
