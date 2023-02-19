@@ -419,7 +419,7 @@ class AddCart(APIView):
         cart = CartSerializers(data=data)
         if cart.is_valid():
             cart.save()
-            return Response({"add cart":"ok"})
+            return Response({ "add cart":"ok"})
         return Response(cart.errors)
 
 class DeleteCart(APIView):
