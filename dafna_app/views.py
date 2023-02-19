@@ -412,15 +412,14 @@ class AddCart(APIView):
             }
         return:json->
             {
-                "id":int
-                "prodouct": int
+                "add cart":"ok"
             }
         """
         data = request.data
         cart = CartSerializers(data=data)
         if cart.is_valid():
             cart.save()
-            return Response(cart.data)
+            return Response({"add cart":"ok"})
         return Response(cart.errors)
 
 class DeleteCart(APIView):
