@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.request import Request
 from rest_framework.response import Response
+from pprint import pprint
 from .models import (
     Katalog,
     Prodouct, 
@@ -469,12 +470,15 @@ class GetCart(APIView):
         cart_filter = Cart.objects.all()
         cart = CartSerializers(cart_filter, many = True)
         data = {
+            "price_sum":0,
             'carts':[]
         }
         for i in cart.data:
             prodouct_filter = Prodouct.objects.get(id = i['prodouct'])
             prodouct = ProdouctSerializers(prodouct_filter, many = False)
             append_data = prodouct.data
+            pprint(append_data)
+            data['price_sum'] += append_data['price']
             append_data['cart_id'] = i['id']
             data['carts'].append(append_data)
         return Response(data)
