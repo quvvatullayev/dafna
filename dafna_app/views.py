@@ -353,6 +353,9 @@ class AddLove(APIView):
         if love.is_valid() and data['prodouct'] not in prodouct_list:
             love.save()
             return Response(love.data)
+        else:
+            love_filter = Love.objects.get(prodouct = data['prodouct'])
+            love_filter.delete()
         return Response(love.errors)
 
 class GetLove(APIView):
