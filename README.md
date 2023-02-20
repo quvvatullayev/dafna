@@ -293,11 +293,16 @@
 ```python
     input:get request dafna_app/get_prodouct/id/
     return:json->
-        {
+        
+        input:get request dafna_app/get_prodouct/id/
+        return:json->
+        {   
+            "id":int,
             "name": str,
             "discrpition": str,
             "img_url": str,
             "prodouct_type": {
+                "id":int,
                 "name": str,
                 "img_url": str,
                 "prodoucts": [

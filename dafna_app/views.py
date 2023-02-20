@@ -278,11 +278,13 @@ class GetProdouct(APIView):
         """
         input:get request dafna_app/get_prodouct/id/
         return:json->
-        {
+        {   
+            "id":int,
             "name": str,
             "discrpition": str,
             "img_url": str,
             "prodouct_type": {
+                "id":int,
                 "name": str,
                 "img_url": str,
                 "prodoucts": [
@@ -305,14 +307,15 @@ class GetProdouct(APIView):
         prodouct = ProdouctSerializers(prodouct_filter, many = True)
         prodouct_type_filter = Prodouct_type.objects.get(id = id)
         prodouct_type = ProdouctTypeSerializers(prodouct_type_filter, many = False)
-        print(prodouct_type.data['katalog'])
         katalog_filter = Katalog.objects.get(id = prodouct_type.data['katalog'])
         katalog = KatalogSerializer(katalog_filter, many = False)
         data = {
+            'id':katalog.data['id'],
             'name':katalog.data['name'],
             'discrpition':katalog.data['discrpition'],
             'img_url':katalog.data['img_url'],
             'prodouct_type':{
+                "id":prodouct_type.data['id'],
                 'name':prodouct_type.data['name'],
                 'img_url':prodouct_type.data['img_url'],
                 'prodoucts':prodouct.data
