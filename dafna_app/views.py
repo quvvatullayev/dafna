@@ -814,4 +814,5 @@ class GetRecommendationProdouct(APIView):
         data = Prodouct.objects.all()[:10]
         prodouct = ProdouctSerializers(data, many = True)
         data = {'prodoucts':prodouct.data}
+        return Response(data)
 
