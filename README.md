@@ -38,7 +38,8 @@
 | GET  | <a href = "#39">`sout/<int:id>/`</a> | sorting products |
 | GET  | <a href = "#30">`delete_all_cart/<int:id>/`</a> | delete all cart |
 | GET  | <a href = "#31">`sout/<str:name>/`</a> | url to search for products to buy |
-| GET  | <a href = '#32'>get_new_prodouct</a> | get new prodoucts on ten |
+| GET  | <a href = '#32'>`get_new_prodouct`</a> | get new prodoucts on ten |
+| GET  | <a href = '#33'>`get_rescommentations`</a> | get rescommentations prodoucts on ten |
 
 <br>
 <br>
@@ -766,6 +767,34 @@
  
 **GET** ```dafna_app/get_new_prodouct/```
 ### ten of the newest products url to return
+
+```python
+        
+        input:get request
+        return:json->
+        {
+            "prodoucts": [
+                {
+                    "id": int,
+                    "name": str,
+                    "discrpition": str
+                    "img_url": str,
+                    "price": int,
+                    "color": str,
+                    "manufacturer": str,
+                    "material": str,
+                    "prodouct_type": int
+                }
+            ]
+        }
+```
+<hr>
+</div>
+
+<div id="33">
+ 
+**GET** ```dafna_app/get_rescommentations/```
+### ten of the rescommentations products url to return
 
 ```python
         
