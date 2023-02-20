@@ -38,6 +38,7 @@
 | GET  | <a href = "#39">`sout/<int:id>/`</a> | sorting products |
 | GET  | <a href = "#30">`delete_all_cart/<int:id>/`</a> | delete all cart |
 | GET  | <a href = "#31">`sout/<str:name>/`</a> | url to search for products to buy |
+
 <br><br>
 <hr>
 
