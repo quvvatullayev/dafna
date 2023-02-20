@@ -52,9 +52,9 @@ class Video(models.Model):
         return self.name
     
 class Main_contacts(models.Model):
-    operator = models.CharField(max_length=25)
-    menejer = models.CharField(max_length=25)
-    mebel_menejer = models.CharField(max_length=25)
+    operator = models.CharField(max_length=225)
+    menejer = models.CharField(max_length=225)
+    mebel_menejer = models.CharField(max_length=225)
     guarantee = models.IntegerField(default=0)
     email = models.EmailField()
 
