@@ -2,7 +2,7 @@
 
 
 ### Dafna
-<h1>base url <a href='https://ogabek007.pythonanywhere.com'><u><i>https://ogabek007.pythonanywhere.com/</i></a></a></h1>
+<h1 id = 'base'>base url <a href='https://ogabek007.pythonanywhere.com'><u><i>https://ogabek007.pythonanywhere.com/</i></a></a></h1>
 
 | method | endpoint | descriptoin |
 |--------|----------|-------------|
@@ -75,6 +75,7 @@
             }
         
 ```
+<a href = "#base">^ to the top ^</a> 
 </div>
 <hr>
 
@@ -101,6 +102,7 @@
             }
         
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="2">
@@ -124,6 +126,7 @@
         }
         
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="3">
@@ -137,6 +140,7 @@
     return:json->{"OK delete":"200"}
         
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="4">
@@ -159,6 +163,7 @@
             }
         
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="5">
@@ -182,6 +187,7 @@
         }
         
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="6">
@@ -208,6 +214,7 @@
         }
         
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="7">
@@ -220,6 +227,7 @@
     return:json->{"OK delete":"200"}
         
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="8">
@@ -253,6 +261,7 @@
             "prodouct_type": int
         }
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="9">
@@ -287,6 +296,7 @@
             "prodouct_type": int
         }
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="10">
@@ -326,6 +336,7 @@
             }
         }
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="11">
@@ -338,6 +349,7 @@
     input:get request dafna_app/delete_prodouct/id/
     return:json->{"OK delete":"200"}
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="12">
@@ -357,6 +369,7 @@
                 "prodouct": int product id
             }      
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="13">
@@ -386,6 +399,7 @@
         }
         
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="14">
@@ -399,6 +413,7 @@
     return:{"OK delete":"200"}
         
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="15">
@@ -418,6 +433,7 @@
             }
         
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="16">
@@ -430,6 +446,7 @@
     input:get request /dafna_app/delete_cart/id/
     return:{"OK delete":"200"}
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="17">
@@ -443,6 +460,7 @@
     return:{"OK delete":"200"}
         
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="18">
@@ -470,6 +488,7 @@
             ]
         }
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="19">
@@ -479,8 +498,27 @@
 
 
 ```python
+        input:get request
+        return:json->
+        {
+            "loves": [
+                {
+                    "id": 5,
+                    "name":str,
+                    "discrpition": str,
+                    "img_url":str,
+                    "price": itn,
+                    "color": str,
+                    "manufacturer": str,
+                    "material":str,
+                    "prodouct_type": int,
+                    "love_id": int
+                }
+            ]
+        }
         
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="20">
@@ -505,6 +543,7 @@
             "video_url": str
         }
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="21">
@@ -518,6 +557,7 @@
         return:{"OK delete":"200"}
         
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="22">
@@ -540,6 +580,7 @@
             ]
         }
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="23">
@@ -569,6 +610,7 @@
         }
         
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="24">
@@ -598,6 +640,7 @@
         }
         
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="25">
@@ -623,6 +666,7 @@
             ]
         }
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="26">
@@ -636,6 +680,7 @@
         input:get request /dafna_app/delete_main_contact/id/
         return:{"OK delete":"200"}
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="27">
@@ -664,6 +709,7 @@
             "main_contacts": int
         }
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="28">
@@ -691,6 +737,7 @@
             "main_contacts": int
         }
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="29">
@@ -704,6 +751,7 @@
         return:{"OK delete":"200"}
         
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="30">
@@ -728,6 +776,7 @@
             ]
         }
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 <div id="31">
@@ -759,6 +808,7 @@
             "sort": "None"
         }
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 
@@ -788,6 +838,7 @@
             ]
         }
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 
@@ -816,6 +867,7 @@
             ]
         }
 ```
+<a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
 
