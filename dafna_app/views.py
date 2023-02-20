@@ -790,5 +790,28 @@ class GetNewProduct(APIView):
         data = {'prodoucts':prodouct.data}
         return Response(data)
 
-
+class GetRecommendationProdouct(APIView):
+    def get(self, request:Request):
+        """
+        input:get request
+        return:json->
+        {
+            "prodoucts": [
+                {
+                    "id": int,
+                    "name": str,
+                    "discrpition": str
+                    "img_url": str,
+                    "price": int,
+                    "color": str,
+                    "manufacturer": str,
+                    "material": str,
+                    "prodouct_type": int
+                }
+            ]
+        }
+        """
+        data = Prodouct.objects.all()[:10]
+        prodouct = ProdouctSerializers(data, many = True)
+        data = {'prodoucts':prodouct.data}
 

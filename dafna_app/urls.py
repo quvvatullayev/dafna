@@ -32,6 +32,7 @@ from .views import(
     Sort,
     DeleteAllCart,
     GetNewProduct,
+    GetRecommendationProdouct,
 )
 
 urlpatterns = [
@@ -67,4 +68,5 @@ urlpatterns = [
     path('sout/<str:name>/', Sort.as_view()),
     path('delete_all_cart/<int:id>/', DeleteAllCart.as_view()),
     path('get_new_prodouct/', GetNewProduct.as_view()),
+    path("get_rescommentations/", GetRecommendationProdouct.as_view())
 ]
