@@ -7,36 +7,37 @@
 | method | endpoint | descriptoin |
 |--------|----------|-------------|
 | POST | <a href = "#0">`add_katalog/`</a>| add katalog |
-| POST | <a href = "#2">`updeate_katalog/`</a> | updeate katalog |
-| GET  | <a href = "#3">`get_katalog/`</a> | get katalog |
-| GET  | <a href = "#4">`delete_katalog/<int:id>/`</a> | delete katalog | 
-| POST | <a href = "#5">`add_prodouct_type/`</a> | add prodouct tupe |
-| POST | <a href = "#6">`updeate_prouduct_type/<int:id>/` | updeate prouduct type |
-| GET  | <a href = "#7">`get_prodouct_type/<int:id>/`</a> | get prodouct type |
-| GET  | <a href = "#8">`delet_prodouct_tupe/<int:id>/`</a> | delete prodouct type |
-| POST | <a href = "#9">`add_prodouct/`</a> | add prodouct |
-| POST | <a href = "#10">`updeate_prodouct/<int:id>/`</a> | updeate prodouct |
-| GET  | <a href = "#11">`get_prodouct/<int:id>/`</a> | get prodouct |
-| GET  | <a href = "#12">`delete_prodouct/<int:id>/`</a> | delete prodouct |
-| POST | <a href = "#13">`add_love/`</a> | add love |
-| GET  | <a href = "#14">`delete_love/<int:id>/`</a> | delete love |
-| POST | <a href = "#15">`add_cart/`</a> |add cart |
-| GET  | <a href = "#16">`delete_cart/<int:id>/`</a> | delete cart |
-| GET  | <a href = "#17">`get_cart/`</a> | get cart |
-| GET  | <a href = "#18">`get_love/`</a> | get love |
-| POST | <a href = "#19">`add_video/`</a> | add video |
-| GET  | <a href = "#20">`delete_video/<int:id>/`</a> | delete video |
-| GET  | <a href = "#21">`get_video/`</a> | get video |
-| POST | <a href = "#22">`add_main_contact/`</a> | add main contact |
-| POST | <a href = "#23">`updeate_main_contact/<int:id>/`</a> | updeate main contact |
-| GET  | <a href = "#24">`get_main_contact/`</a> | get main contact |
-| GET  | <a href = "#25">`delet_main_contact/<int:id>/`</a> | delet main contact |
-| POST | <a href = "#26">`add_contact/`</a> | add contact |
-| POST | <a href = "#27">`updeate_contact/<int:id>/`</a> | updeate contact |
-| GET  | <a href = "#28">`delete_contact/<int:id>/`</a> | delete contact |
-| GET  | <a href = "#29">`get_contact/<int:id>/`</a> | get contact |
-| GET  | <a href = "#30">`sout/<int:id>/`</a> | sorting products |
-| GET  | <a href = "#31">`delete_all_cart/<int:id>/`</a> | delete all cart |
+| POST | <a href = "#1">`updeate_katalog/`</a> | updeate katalog |
+| GET  | <a href = "#2">`get_katalog/`</a> | get katalog |
+| GET  | <a href = "#3">`delete_katalog/<int:id>/`</a> | delete katalog | 
+| POST | <a href = "#4">`add_prodouct_type/`</a> | add prodouct tupe |
+| POST | <a href = "#5">`updeate_prouduct_type/<int:id>/` | updeate prouduct type |
+| GET  | <a href = "#6">`get_prodouct_type/<int:id>/`</a> | get prodouct type |
+| GET  | <a href = "#7">`delet_prodouct_tupe/<int:id>/`</a> | delete prodouct type |
+| POST | <a href = "#8">`add_prodouct/`</a> | add prodouct |
+| POST | <a href = "#9">`updeate_prodouct/<int:id>/`</a> | updeate prodouct |
+| GET  | <a href = "#10">`get_prodouct/<int:id>/`</a> | get prodouct |
+| GET  | <a href = "#11">`delete_prodouct/<int:id>/`</a> | delete prodouct |
+| POST | <a href = "#12">`add_love/`</a> | add love |
+| GET  | <a href = "#13">`delete_love/<int:id>/`</a> | delete love |
+| POST | <a href = "#14">`add_cart/`</a> |add cart |
+| GET  | <a href = "#15">`delete_cart/<int:id>/`</a> | delete cart |
+| GET  | <a href = "#16">`get_cart/`</a> | get cart |
+| GET  | <a href = "#17">`get_love/`</a> | get love |
+| POST | <a href = "#18">`add_video/`</a> | add video |
+| GET  | <a href = "#19">`delete_video/<int:id>/`</a> | delete video |
+| GET  | <a href = "#20">`get_video/`</a> | get video |
+| POST | <a href = "#21">`add_main_contact/`</a> | add main contact |
+| POST | <a href = "#22">`updeate_main_contact/<int:id>/`</a> | updeate main contact |
+| GET  | <a href = "#23">`get_main_contact/`</a> | get main contact |
+| GET  | <a href = "#24">`delet_main_contact/<int:id>/`</a> | delet main contact |
+| POST | <a href = "#25">`add_contact/`</a> | add contact |
+| POST | <a href = "#26">`updeate_contact/<int:id>/`</a> | updeate contact |
+| GET  | <a href = "#27">`delete_contact/<int:id>/`</a> | delete contact |
+| GET  | <a href = "#28">`get_contact/<int:id>/`</a> | get contact |
+| GET  | <a href = "#39">`sout/<int:id>/`</a> | sorting products |
+| GET  | <a href = "#30">`delete_all_cart/<int:id>/`</a> | delete all cart |
+| GET  | <a href = "#31">`sout/<str:name>/`</a> | url to search for products to buy |
 <br><br>
 <hr>
 
