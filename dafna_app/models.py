@@ -52,9 +52,9 @@ class Video(models.Model):
         return self.name
     
 class Main_contacts(models.Model):
-    operator = models.CharField(max_length=225)
-    menejer = models.CharField(max_length=225)
-    mebel_menejer = models.CharField(max_length=225)
+    operator = models.CharField(max_length=252)
+    menejer = models.CharField(max_length=252)
+    mebel_menejer = models.CharField(max_length=252)
     guarantee = models.IntegerField(default=0)
     email = models.EmailField()
 
@@ -62,10 +62,10 @@ class Main_contacts(models.Model):
         return self.operator
     
 class Contact(models.Model):
-    branches_name = models.CharField(max_length=225)
-    address = models.CharField(max_length=225)
+    branches_name = models.CharField(max_length=252)
+    address = models.CharField(max_length=252)
     datetime = models.DateTimeField(auto_now=True, blank=True)
-    menefer = models.CharField(max_length=225)
+    menefer = models.CharField(max_length=252)
     main_contacts = models.ForeignKey(Main_contacts, models.CASCADE)
 
     def __str__(self) -> str:
