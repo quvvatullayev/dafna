@@ -36,7 +36,7 @@
 | GET  | <a href = "#delete_contact">`delete_contact/<int:id>/`</a> | delete contact |
 | GET  | <a href = "#get_contact">`get_contact/<int:id>/`</a> | get contact |
 | GET  | <a href = "#delete_all_cart">`delete_all_cart/<int:id>/`</a> | delete all cart |
-| GET  | <a href = "#sourt">`sourt/<str:name>/`</a> | url to search for products to buy |
+| GET  | <a href = "#sourt">`sort/<str:name>/`</a> | url to search for products to buy |
 | GET  | <a href = '#get_new_prodouct'>`get_new_prodouct`</a> | get new prodoucts on ten |
 | GET  | <a href = '#get_rescommentations'>`get_rescommentations`</a> | get rescommentations prodoucts on ten |
 
@@ -780,7 +780,7 @@
 </div>
 <div id="sourt">
  
-**GET** ```dafna_app/sourt/<str:name>/```
+**GET** ```dafna_app/sort/<str:name>/```
 ### url to search for products to buy
 
 

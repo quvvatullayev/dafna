@@ -65,7 +65,7 @@ urlpatterns = [
     path('updeate_contact/<int:id>/', UpdeateContact.as_view()),
     path('delete_contact/<int:id>/', DeleteContact.as_view()),
     path('get_contact/', GetContact.as_view()),
-    path('sourt/<str:name>/', Sort.as_view()),
+    path('sort/<str:name>/', Sort.as_view()),
     path('delete_all_cart/<int:id>/', DeleteAllCart.as_view()),
     path('get_new_prodouct/', GetNewProduct.as_view()),
     path("get_rescommentations/", GetRecommendationProdouct.as_view())
