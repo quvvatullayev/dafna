@@ -740,17 +740,20 @@ class Sort(APIView):
         input:get request
         return:json->
         [
-            {
-                "id": int,
-                "name": str,
-                "discrpition": str,
-                "img_url": str,
-                "price": int,
-                "color": str,
-                "manufacturer": int,
-                "material": str,
-                "prodouct_type": int
-            }
+            "sorts":
+            [
+                {
+                    "id": int,
+                    "name": str,
+                    "discrpition": str,
+                    "img_url": str,
+                    "price": int,
+                    "color": str,
+                    "manufacturer": int,
+                    "material": str,
+                    "prodouct_type": int
+                }
+            ]
         ]
 
         or:json->
@@ -761,7 +764,10 @@ class Sort(APIView):
         prodouct_filter = Prodouct.objects.filter(name__contains = name)
         prodouct = ProdouctSerializers(prodouct_filter, many = True)
         if len(prodouct.data) > 0:
-            return Response(prodouct.data)
+            data = {
+                "sorts":prodouct.data
+            }
+            return Response(data)
         return Response({'sort':"None"})
 
 class GetNewProduct(APIView):

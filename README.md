@@ -6,40 +6,39 @@
 
 | method | endpoint | descriptoin |
 |--------|----------|-------------|
-| POST | <a href = "#0">`add_katalog/`</a>| add katalog |
-| POST | <a href = "#1">`updeate_katalog/`</a> | updeate katalog |
-| GET  | <a href = "#2">`get_katalog/`</a> | get katalog |
-| GET  | <a href = "#3">`delete_katalog/<int:id>/`</a> | delete katalog | 
-| POST | <a href = "#4">`add_prodouct_type/`</a> | add prodouct tupe |
-| POST | <a href = "#5">`updeate_prouduct_type/<int:id>/` | updeate prouduct type |
-| GET  | <a href = "#6">`get_prodouct_type/<int:id>/`</a> | get prodouct type |
-| GET  | <a href = "#7">`delet_prodouct_tupe/<int:id>/`</a> | delete prodouct type |
-| POST | <a href = "#8">`add_prodouct/`</a> | add prodouct |
-| POST | <a href = "#9">`updeate_prodouct/<int:id>/`</a> | updeate prodouct |
-| GET  | <a href = "#10">`get_prodouct/<int:id>/`</a> | get prodouct |
-| GET  | <a href = "#11">`delete_prodouct/<int:id>/`</a> | delete prodouct |
-| POST | <a href = "#12">`add_love/`</a> | add love |
-| GET  | <a href = "#13">`delete_love/<int:id>/`</a> | delete love |
-| POST | <a href = "#14">`add_cart/`</a> |add cart |
-| GET  | <a href = "#15">`delete_cart/<int:id>/`</a> | delete cart |
-| GET  | <a href = "#16">`get_cart/`</a> | get cart |
-| GET  | <a href = "#17">`get_love/`</a> | get love |
-| POST | <a href = "#18">`add_video/`</a> | add video |
-| GET  | <a href = "#19">`delete_video/<int:id>/`</a> | delete video |
-| GET  | <a href = "#20">`get_video/`</a> | get video |
-| POST | <a href = "#21">`add_main_contact/`</a> | add main contact |
-| POST | <a href = "#22">`updeate_main_contact/<int:id>/`</a> | updeate main contact |
-| GET  | <a href = "#23">`get_main_contact/`</a> | get main contact |
-| GET  | <a href = "#24">`delet_main_contact/<int:id>/`</a> | delet main contact |
-| POST | <a href = "#25">`add_contact/`</a> | add contact |
-| POST | <a href = "#26">`updeate_contact/<int:id>/`</a> | updeate contact |
-| GET  | <a href = "#27">`delete_contact/<int:id>/`</a> | delete contact |
-| GET  | <a href = "#28">`get_contact/<int:id>/`</a> | get contact |
-| GET  | <a href = "#39">`sout/<int:id>/`</a> | sorting products |
-| GET  | <a href = "#30">`delete_all_cart/<int:id>/`</a> | delete all cart |
-| GET  | <a href = "#31">`sout/<str:name>/`</a> | url to search for products to buy |
-| GET  | <a href = '#32'>`get_new_prodouct`</a> | get new prodoucts on ten |
-| GET  | <a href = '#33'>`get_rescommentations`</a> | get rescommentations prodoucts on ten |
+| POST | <a href = "#add_katalog">`add_katalog/`</a>| add katalog |
+| POST | <a href = "#updeate_katalog">`updeate_katalog/`</a> | updeate katalog |
+| GET  | <a href = "#get_katalog">`get_katalog/`</a> | get katalog |
+| GET  | <a href = "#delete_katalog">`delete_katalog/<int:id>/`</a> | delete katalog | 
+| POST | <a href = "#add_prodouct_type">`add_prodouct_type/`</a> | add prodouct tupe |
+| POST | <a href = "#updeate_prouduct_type">`updeate_prouduct_type/<int:id>/` | updeate prouduct type |
+| GET  | <a href = "#get_prodouct_type">`get_prodouct_type/<int:id>/`</a> | get prodouct type |
+| GET  | <a href = "#delet_prodouct_tupe">`delet_prodouct_tupe/<int:id>/`</a> | delete prodouct type |
+| POST | <a href = "#add_prodouct">`add_prodouct/`</a> | add prodouct |
+| POST | <a href = "#updeate_prodouct">`updeate_prodouct/<int:id>/`</a> | updeate prodouct |
+| GET  | <a href = "#get_prodouct">`get_prodouct/<int:id>/`</a> | get prodouct |
+| GET  | <a href = "#delete_prodouct">`delete_prodouct/<int:id>/`</a> | delete prodouct |
+| POST | <a href = "#add_love">`add_love/`</a> | add love |
+| GET  | <a href = "#delete_love">`delete_love/<int:id>/`</a> | delete love |
+| POST | <a href = "#add_cart">`add_cart/`</a> |add cart |
+| GET  | <a href = "#delete_cart">`delete_cart/<int:id>/`</a> | delete cart |
+| GET  | <a href = "#get_cart">`get_cart/`</a> | get cart |
+| GET  | <a href = "#get_love">`get_love/`</a> | get love |
+| POST | <a href = "#add_video">`add_video/`</a> | add video |
+| GET  | <a href = "#delete_video">`delete_video/<int:id>/`</a> | delete video |
+| GET  | <a href = "#get_video">`get_video/`</a> | get video |
+| POST | <a href = "#add_main_contact">`add_main_contact/`</a> | add main contact |
+| POST | <a href = "#updeate_main_contact">`updeate_main_contact/<int:id>/`</a> | updeate main contact |
+| GET  | <a href = "#get_main_contact">`get_main_contact/`</a> | get main contact |
+| GET  | <a href = "#delet_main_contact">`delet_main_contact/<int:id>/`</a> | delet main contact |
+| POST | <a href = "#add_contact">`add_contact/`</a> | add contact |
+| POST | <a href = "#updeate_contact">`updeate_contact/<int:id>/`</a> | updeate contact |
+| GET  | <a href = "#delete_contact">`delete_contact/<int:id>/`</a> | delete contact |
+| GET  | <a href = "#get_contact">`get_contact/<int:id>/`</a> | get contact |
+| GET  | <a href = "#delete_all_cart">`delete_all_cart/<int:id>/`</a> | delete all cart |
+| GET  | <a href = "#sourt">`sourt/<str:name>/`</a> | url to search for products to buy |
+| GET  | <a href = '#get_new_prodouct'>`get_new_prodouct`</a> | get new prodoucts on ten |
+| GET  | <a href = '#get_rescommentations'>`get_rescommentations`</a> | get rescommentations prodoucts on ten |
 
 <br>
 <br>
@@ -53,7 +52,7 @@
 <br><br><br><br>
 <hr>
 
-<div id="0"> 
+<div id="add_katalog"> 
 
 **POST** ```dafna_app/add_katalog/```
 ### url to add directory
@@ -79,7 +78,7 @@
 </div>
 <hr>
 
-<div id="1">
+<div id="updeate_katalog">
  
 **POST** ```dafna_app/updeate_katalog/<int:id>/```
 ### url to update directory
@@ -105,7 +104,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="2">
+<div id="get_katalog">
  
 **GET** ```dafna_app/get_katalog/```
 ### url to get all of the directory
@@ -129,7 +128,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="3">
+<div id="delete_katalog">
  
 **GET** ```dafna_app/delete_katalog/<int:id>/```
 ### url to delete the directory
@@ -143,7 +142,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="4">
+<div id="add_prodouct_type">
  
 **POST** ```dafna_app/add_prodouct_type/```
 ### url to add product type
@@ -166,7 +165,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="5">
+<div id="updeate_prouduct_type">
  
 **POST** ```dafna_app/updeate_prouduct_type/<int:id>/```
 ### url to update product type
@@ -190,7 +189,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="6">
+<div id="get_prodouct_type">
  
 **GET** ```dafna_app/get_prodouct_type/<int:id>/```
 ### url to get the product type
@@ -217,7 +216,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="7">
+<div id="delet_prodouct_tupe">
  
 **GET** ```dafna_app/delet_prodouct_tupe/<int:id>/```
 ### url to delete product type
@@ -230,7 +229,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="8">
+<div id="add_prodouct">
  
 **POST** ```dafna_app/add_prodouct/```
 ### url to create the product
@@ -264,7 +263,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="9">
+<div id="updeate_prodouct">
  
 **POST** ```dafna_app/updeate_prodouct/<int:id>/```
 ### url to update prodouct
@@ -299,7 +298,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="10">
+<div id="get_prodouct">
  
 **GET** ```dafna_app/get_prodouct/<int:id>/```
 ### url to read prodouct
@@ -339,7 +338,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="11">
+<div id="delete_prodouct">
  
 **GET** ```dafna_app/delete_prodouct/<int:id>/```
 ### url to delete prodouct
@@ -352,7 +351,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="12">
+<div id="add_love">
  
 **POST** ```dafna_app/add_love/```
 ### url to add love
@@ -372,7 +371,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="13">
+<div id="get_love">
  
 **GET** ```dafna_app/get_love/```
 ### url to get love
@@ -402,7 +401,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="14">
+<div id="delete_love">
  
 **GET** ```dafna_app/delete_love/<int:id>/```
 ### url to delete love
@@ -416,7 +415,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="15">
+<div id="add_cart">
  
 **POST** ```dafna_app/add_cart/```
 ### url to add cart
@@ -436,7 +435,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="16">
+<div id="delete_cart">
  
 **GET** ```dafna_app/delete_cart/<int:id>/```
 ### url to delete cart
@@ -449,7 +448,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="17">
+<div id="delete_all_cart">
  
 **GET** ```dafna_app/delete_all_cart/<int:id>/```
 ### url to delete all carts
@@ -463,7 +462,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="18">
+<div id="get_cart">
  
 **GET** ```dafna_app/get_cart/```
 ### url to get carts
@@ -491,7 +490,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="19">
+<div id="get_love">
  
 **GET** ```dafna_app/get_love/```
 ### url to get loves
@@ -521,7 +520,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="20">
+<div id="add_video">
  
 **POST** ```dafna_app/add_video/```
 ### url to add video
@@ -546,7 +545,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="21">
+<div id="delete_video">
  
 **GET** ```dafna_app/delete_video/<int:id>/```
 ### url to delete video
@@ -560,7 +559,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="22">
+<div id="get_video">
  
 **GET** ```dafna_app/get_video/```
 ### url to get video
@@ -583,7 +582,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="23">
+<div id="add_main_contact">
  
 **POST** ```dafna_app/add_main_contact/```
 ### url to create main contact
@@ -613,7 +612,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="24">
+<div id="updeate_main_contact">
  
 **POST** ```dafna_app/updeate_main_contact/<int:id>/```
 ### url to updeate main contact
@@ -643,7 +642,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="25">
+<div id="get_main_contact">
  
 **GET** ```dafna_app/get_main_contact/```
 ### url to get main contact
@@ -669,7 +668,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="26">
+<div id="delet_main_contact">
  
 **GET** ```dafna_app/delet_main_contact/<int:id>/```
 ### url to delete main contact
@@ -683,7 +682,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="27">
+<div id="add_contact">
  
 **POST** ```dafna_app/add_contact/```
 ### url to create contact
@@ -712,7 +711,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="28">
+<div id="updeate_contact">
  
 **POST** ```dafna_app/updeate_contact/<int:id>/```
 ### url to updeate contact
@@ -740,7 +739,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="29">
+<div id="delete_contact">
  
 **GET** ```dafna_app/delete_contact/<int:id>/```
 ### url to delete contact
@@ -754,7 +753,7 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="30">
+<div id="get_contact">
  
 **GET** ```dafna_app/get_contact/```
 ### url to get contact
@@ -779,9 +778,9 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
-<div id="31">
+<div id="sourt">
  
-**GET** ```dafna_app/sout/<str:name>/```
+**GET** ```dafna_app/sourt/<str:name>/```
 ### url to search for products to buy
 
 
@@ -790,17 +789,20 @@
         input:get request
         return:json->
         [
-            {
-                "id": int,
-                "name": str,
-                "discrpition": str,
-                "img_url": str,
-                "price": int,
-                "color": str,
-                "manufacturer": int,
-                "material": str,
-                "prodouct_type": int
-            }
+            "sorts":
+            [
+                {
+                    "id": int,
+                    "name": str,
+                    "discrpition": str,
+                    "img_url": str,
+                    "price": int,
+                    "color": str,
+                    "manufacturer": int,
+                    "material": str,
+                    "prodouct_type": int
+                }
+            ]
         ]
 
         or:json->
@@ -813,7 +815,7 @@
 </div>
 
 
-<div id="32">
+<div id="get_new_prodouct">
  
 **GET** ```dafna_app/get_new_prodouct/```
 ### ten of the newest products url to return
@@ -842,7 +844,7 @@
 <hr>
 </div>
 
-<div id="33">
+<div id="get_rescommentations">
  
 **GET** ```dafna_app/get_rescommentations/```
 ### ten of the rescommentations products url to return
