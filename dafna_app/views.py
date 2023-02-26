@@ -821,4 +821,28 @@ class GetRecommendationProdouct(APIView):
         prodouct = ProdouctSerializers(data, many = True)
         data = {'prodoucts':prodouct.data}
         return Response(data)
+    
+class GetProdouctDetail(APIView):
+    def get(self, request:Request, id):
+        """
+        input:get request
+        return:json->
+        {
+            "prodouct": {
+                "id": int,
+                "name": str,
+                "discrpition": str
+                "img_url": str,
+                "price": int,
+                "color": str,
+                "manufacturer": str,
+                "material": str,
+                "prodouct_type": int
+            }
+        }
+        """
+        prodouct_filter = Prodouct.objects.get(id = id)
+        prodouct = ProdouctSerializers(prodouct_filter, many = False)
+        data = {'prodouct':prodouct.data}
+        return Response(data)
 

@@ -17,6 +17,7 @@
 | POST | <a href = "#add_prodouct">`add_prodouct/`</a> | add prodouct |
 | POST | <a href = "#updeate_prodouct">`updeate_prodouct/<int:id>/`</a> | updeate prodouct |
 | GET  | <a href = "#get_prodouct">`get_prodouct/<int:id>/`</a> | get prodouct |
+| GET  | <a herf = "#get_prodouct_detail">`get_prodouct_detail/<int:id>/`</a> | get prodouct detail |
 | GET  | <a href = "#delete_prodouct">`delete_prodouct/<int:id>/`</a> | delete prodouct |
 | POST | <a href = "#add_love">`add_love/`</a> | add love |
 | GET  | <a href = "#delete_love">`delete_love/<int:id>/`</a> | delete love |
@@ -872,5 +873,27 @@
 <a href = "#base">^ to the top ^</a> 
 <hr>
 </div>
+<div id="get_prodouct_detail">
+**GET** ```dafna_app/get_prodouct_detail/<int:id>/```
+### url to get prodouct detail
+
+```python
+        
+        input:get request
+        return:json->
+        {
+            "prodouct": {
+                "id": int,
+                "name": str,
+                "discrpition": str,
+                "img_url": str,
+                "price": int,
+                "color": str,
+                "manufacturer": str,
+                "material": str,
+                "prodouct_type": int
+            }
+        }
+```
 
 ...
