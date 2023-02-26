@@ -874,7 +874,8 @@
 <hr>
 </div>
 <div id="get_prodouct_detail">
-**GET** `dafna_app/get_prodouct_detail/<int:id>/`
+
+**GET** ```dafna_app/get_prodouct_detail/<int:id>/```
 
 ### url to get prodouct detail
 
