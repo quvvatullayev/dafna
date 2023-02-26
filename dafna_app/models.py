@@ -23,6 +23,7 @@ class Prodouct(models.Model):
     discrpition = models.CharField(max_length=225)
     img_url = models.TextField(max_length=225)
     price = models.IntegerField()
+    like = models.BooleanField(default=False)
     color = models.TextField(max_length=25)
     manufacturer = models.TextField(max_length=25)
     material = models.TextField(max_length=25)

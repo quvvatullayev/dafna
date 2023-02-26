@@ -350,6 +350,11 @@ class AddLove(APIView):
         love = LoveSerializers(data=data)
         love_all = Love.objects.all()
         love_all_data = LoveSerializers(love_all, many = True)
+        id = data['prodouct']
+        prodouct_filter = Prodouct.objects.get(id = id)
+        prodouct = prodouct_filter
+        prodouct.like = True
+        prodouct.save()
         prodouct_list = []
         for i in love_all_data.data:
             prodouct_list.append(i['prodouct'])
@@ -463,6 +468,7 @@ class GetCart(APIView):
                     "img_url": str,
                     "price": int,
                     "color": str,
+                    "like":bool
                     "manufacturer": str,
                     "material": str,
                     "prodouct_type": int
@@ -750,6 +756,7 @@ class Sort(APIView):
                     "price": int,
                     "color": str,
                     "manufacturer": int,
+                    "like":boole
                     "material": str,
                     "prodouct_type": int
                 }
@@ -785,6 +792,7 @@ class GetNewProduct(APIView):
                     "price": int,
                     "color": str,
                     "manufacturer": str,
+                    "like":bool
                     "material": str,
                     "prodouct_type": int
                 }
@@ -811,6 +819,7 @@ class GetRecommendationProdouct(APIView):
                     "price": int,
                     "color": str,
                     "manufacturer": str,
+                    "like":bool
                     "material": str,
                     "prodouct_type": int
                 }
@@ -837,6 +846,7 @@ class GetProdouctDetail(APIView):
                 "color": str,
                 "manufacturer": str,
                 "material": str,
+                "like":bool
                 "prodouct_type": int
             }
         }
