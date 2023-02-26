@@ -267,6 +267,7 @@ class UpdeateProdouct(APIView):
         updeate_prodouct.img_url = data.get('img_url', updeate_prodouct.img_url)
         updeate_prodouct.price = data.get('price', updeate_prodouct.price)
         updeate_prodouct.color = data.get('color', updeate_prodouct.color)
+        updeate_prodouct.like = data.get('like', updeate_prodouct.like)
         updeate_prodouct.manufacturer = data.get('manufacturer', updeate_prodouct.manufacturer)
         updeate_prodouct.material = data.get('material', updeate_prodouct.material)
         updeate_prodouct.save()

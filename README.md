@@ -244,6 +244,7 @@
             "img_url":str
             "price":int,
             "color": str,
+            "like":bool,
             "manufacturer":str,
             "material": str,
             "prodouct_type": int
@@ -256,6 +257,7 @@
             "img_url":str,
             "price":int,
             "color": str,
+            "like":bool,
             "manufacturer":str,
             "material": str,
             "prodouct_type": int
@@ -279,6 +281,7 @@
             "img_url": (option)str,
             "price": (option)int,
             "color": (option)str,
+            "like": (option)bool,
             "manufacturer": (option)str,
             "material": (option)str,
             "prodouct_type": (option)int
@@ -291,6 +294,7 @@
             "img_url":str,
             "price": int,
             "color":str,
+            "like": bool,
             "manufacturer": str,
             "material": str,
             "prodouct_type": int
@@ -328,6 +332,7 @@
                         "img_url": str,
                         "price": int,
                         "color": str,
+                        "like": bool,
                         "manufacturer": str,
                         "material": str,
                         "prodouct_type": int
@@ -390,6 +395,7 @@
                     "img_url": "nada",
                     "price": 4500000,
                     "color": "qora",
+                    "like": true,
                     "manufacturer": "uz",
                     "material": "charim",
                     "prodouct_type": 3,
@@ -481,6 +487,7 @@
                     "img_url": str,
                     "price": int,
                     "color": str,
+                    "like": bool,
                     "manufacturer": str,
                     "material": str,
                     "prodouct_type": int
@@ -509,6 +516,7 @@
                     "img_url":str,
                     "price": itn,
                     "color": str,
+                    "like": bool,
                     "manufacturer": str,
                     "material":str,
                     "prodouct_type": int,
@@ -799,6 +807,7 @@
                     "img_url": str,
                     "price": int,
                     "color": str,
+                    "like": bool,
                     "manufacturer": int,
                     "material": str,
                     "prodouct_type": int
@@ -834,6 +843,7 @@
                     "img_url": str,
                     "price": int,
                     "color": str,
+                    "like": bool,
                     "manufacturer": str,
                     "material": str,
                     "prodouct_type": int
@@ -863,6 +873,7 @@
                     "img_url": str,
                     "price": int,
                     "color": str,
+                    "like": bool,
                     "manufacturer": str,
                     "material": str,
                     "prodouct_type": int
@@ -891,6 +902,7 @@
                 "img_url": str,
                 "price": int,
                 "color": str,
+                "like": bool,
                 "manufacturer": str,
                 "material": str,
                 "prodouct_type": int
