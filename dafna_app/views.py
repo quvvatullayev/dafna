@@ -354,7 +354,10 @@ class AddLove(APIView):
         id = data['prodouct']
         prodouct_filter = Prodouct.objects.get(id = id)
         prodouct = prodouct_filter
-        prodouct.like = True
+        if prodouct.like == True:
+            prodouct.like = False
+        else:
+            prodouct.like = True
         prodouct.save()
         prodouct_list = []
         for i in love_all_data.data:
