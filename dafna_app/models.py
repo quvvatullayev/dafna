@@ -5,14 +5,14 @@ from django.db import models
 class Katalog(models.Model):
     name = models.TextField(max_length=225)
     discrpition = models.CharField(max_length=225)
-    img_url = models.TextField(max_length=225)
+    img_url = models.ImageField()
 
     def __str__(self) -> str:
         return self.name
     
 class Prodouct_type(models.Model):
     name = models.CharField(max_length=225)
-    img_url = models.TextField(max_length=225)
+    img_url = models.ImageField()
     katalog = models.ForeignKey(Katalog, models.CASCADE)
 
     def __str__(self) -> str:
@@ -21,7 +21,7 @@ class Prodouct_type(models.Model):
 class Prodouct(models.Model):
     name = models.TextField(max_length=225)
     discrpition = models.CharField(max_length=225)
-    img_url = models.TextField(max_length=225)
+    img_url = models.ImageField()
     price = models.IntegerField()
     like = models.BooleanField(default=False)
     color = models.TextField(max_length=25)
