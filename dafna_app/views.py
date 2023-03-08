@@ -393,17 +393,11 @@ class GetLove(APIView):
             ]
         }
         """
-        love_filter = Love.objects.all()
-        love = LoveSerializers(love_filter, many = True)
+        love_filter = Prodouct.objects.filter(like = True)
+        love = ProdouctSerializers(love_filter, many = True)
         data = {
-            'loves':[]
+            'loves':love.data
         }
-        for i in love.data:
-            prodouct_filter = Prodouct.objects.get(id = i["prodouct"])
-            prodouct = ProdouctSerializers(prodouct_filter)
-            appendt_data = prodouct.data
-            appendt_data['love_id'] = i['id']
-            data['loves'].append(appendt_data)
         return Response(data)
 
 class DeleteLove(APIView):
