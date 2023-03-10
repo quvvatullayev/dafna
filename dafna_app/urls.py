@@ -34,6 +34,9 @@ from .views import(
     GetNewProduct,
     GetRecommendationProdouct,
     GetProdouctDetail,
+    AddProdouctImg,
+    DeleteProdouctImg,
+    GetProdouctImg,
 )
 
 urlpatterns = [
@@ -71,4 +74,7 @@ urlpatterns = [
     path('get_new_prodouct/', GetNewProduct.as_view()),
     path("get_rescommentations/", GetRecommendationProdouct.as_view()),
     path("get_prodouct_detail/<int:id>/", GetProdouctDetail.as_view()),
+    path("add_prodouct_img/", AddProdouctImg.as_view()),
+    path("delete_prodouct_img/<int:id>/", DeleteProdouctImg.as_view()),
+    path("get_prodouct_img/<int:id>/", GetProdouctImg.as_view()),
 ]
