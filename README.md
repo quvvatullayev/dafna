@@ -248,6 +248,7 @@
             "price":int,
             "color": str,
             "like":bool,
+            "cart":bool,
             "manufacturer":str,
             "material": str,
             "prodouct_type": int
@@ -261,6 +262,7 @@
             "price":int,
             "color": str,
             "like":bool,
+            "cart":bool,
             "manufacturer":str,
             "material": str,
             "prodouct_type": int
@@ -285,6 +287,7 @@
             "price": (option)int,
             "color": (option)str,
             "like": (option)bool,
+            "cart": (option)bool,
             "manufacturer": (option)str,
             "material": (option)str,
             "prodouct_type": (option)int
@@ -298,6 +301,7 @@
             "price": int,
             "color":str,
             "like": bool,
+            "cart": bool,
             "manufacturer": str,
             "material": str,
             "prodouct_type": int
@@ -336,6 +340,7 @@
                         "price": int,
                         "color": str,
                         "like": bool,
+                        "cart": bool,
                         "manufacturer": str,
                         "material": str,
                         "prodouct_type": int
@@ -458,6 +463,7 @@
                     "price": 4500000,
                     "color": "qora",
                     "like": true,
+                    "cart": false,
                     "manufacturer": "uz",
                     "material": "charim",
                     "prodouct_type": 3,
@@ -550,6 +556,7 @@
                     "price": int,
                     "color": str,
                     "like": bool,
+                    "cart": bool,
                     "manufacturer": str,
                     "material": str,
                     "prodouct_type": int
@@ -579,6 +586,7 @@
                     "price": itn,
                     "color": str,
                     "like": bool,
+                    "cart": bool,
                     "manufacturer": str,
                     "material":str,
                     "prodouct_type": int,
@@ -870,6 +878,7 @@
                     "price": int,
                     "color": str,
                     "like": bool,
+                    "cart": bool,
                     "manufacturer": int,
                     "material": str,
                     "prodouct_type": int
@@ -906,6 +915,7 @@
                     "price": int,
                     "color": str,
                     "like": bool,
+                    "cart": bool,
                     "manufacturer": str,
                     "material": str,
                     "prodouct_type": int
@@ -936,6 +946,7 @@
                     "price": int,
                     "color": str,
                     "like": bool,
+                    "cart": bool,
                     "manufacturer": str,
                     "material": str,
                     "prodouct_type": int
@@ -965,6 +976,7 @@
                 "price": int,
                 "color": str,
                 "like": bool,
+                "cart": bool,
                 "manufacturer": str,
                 "material": str,
                 "prodouct_type": int

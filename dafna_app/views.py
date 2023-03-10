@@ -270,6 +270,7 @@ class UpdeateProdouct(APIView):
         updeate_prodouct.price = data.get('price', updeate_prodouct.price)
         updeate_prodouct.color = data.get('color', updeate_prodouct.color)
         updeate_prodouct.like = data.get('like', updeate_prodouct.like)
+        updeate_prodouct.cart = data.get('cart', updeate_prodouct.cart)
         updeate_prodouct.manufacturer = data.get('manufacturer', updeate_prodouct.manufacturer)
         updeate_prodouct.material = data.get('material', updeate_prodouct.material)
         updeate_prodouct.save()
@@ -385,6 +386,8 @@ class GetProdouctImg(APIView):
             'img_url':prodouct.data['img_url'],
             'price':prodouct.data['price'],
             'color':prodouct.data['color'],
+            'like':prodouct.data['like'],
+            'cart':prodouct.data['cart'],
             'manufacturer':prodouct.data['manufacturer'],
             'material':prodouct.data['material'],
             'prodouct_type':prodouct.data['prodouct_type'],
@@ -491,6 +494,10 @@ class AddCart(APIView):
             }
         """
         data = request.data
+        prodouct_filter = Prodouct.objects.get(id = data['prodouct'])
+        prodouct = prodouct_filter
+        prodouct.cart = True
+        prodouct.save()
         cart = CartSerializers(data=data)
         if cart.is_valid():
             cart.save()
@@ -504,6 +511,10 @@ class DeleteCart(APIView):
         return:{"OK delete":"200"}
         """
         cart = Cart.objects.get(id = id)
+        prodouct_filter = Prodouct.objects.get(id = cart.prodouct)
+        prodouct = prodouct_filter
+        prodouct.cart = False
+        prodouct.save()
         cart.delete()
         return Response({"OK delete":"200"})
     

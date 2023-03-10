@@ -24,6 +24,7 @@ class Prodouct(models.Model):
     img_url = models.ImageField()
     price = models.IntegerField()
     like = models.BooleanField(default=False)
+    cart = models.BooleanField(default=False)
     color = models.TextField(max_length=25)
     manufacturer = models.TextField(max_length=25)
     material = models.TextField(max_length=25)
