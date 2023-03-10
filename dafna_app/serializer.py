@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import (
     Katalog,
     Prodouct, 
+    Prodouct_img,
     Prodouct_type,
     Love,
     Cart,
@@ -18,6 +19,11 @@ class KatalogSerializer(serializers.ModelSerializer):
 class ProdouctSerializers(serializers.ModelSerializer):
     class Meta:
         model = Prodouct
+        fields = '__all__'
+
+class ProdouctImgSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Prodouct_img
         fields = '__all__'
 
 class ProdouctTypeSerializers(serializers.ModelSerializer):
