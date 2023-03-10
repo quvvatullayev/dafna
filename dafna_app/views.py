@@ -497,19 +497,29 @@ class GetCart(APIView):
             ]
         }
         """
-        cart_filter = Cart.objects.all()
-        cart = CartSerializers(cart_filter, many = True)
+        prodouct_filter = Prodouct.objects.filter(carts = True)
+        prodouct = ProdouctSerializers(prodouct_filter, many = True)
         data = {
             "price_sum":0,
             'carts':[]
         }
-        for i in cart.data:
-            prodouct_filter = Prodouct.objects.get(id = i['prodouct'])
-            prodouct = ProdouctSerializers(prodouct_filter, many = False)
-            append_data = prodouct.data
-            data['price_sum'] += append_data['price']
-            append_data['cart_id'] = i['id']
+        for i in prodouct.data:
+            append_data = {
+                "id":i['id'],
+                "name":i['name'],
+                "discrpition":i['discrpition'],
+                "img_url":i['img_url'],
+                "price":i['price'],
+                "color":i['color'],
+                "like":i['like'],
+                "carts":i['carts'],
+                "manufacturer":i['manufacturer'],
+                "material":i['material'],
+                "prodouct_type":i['prodouct_type']
+            }
             data['carts'].append(append_data)
+            data['price_sum'] += i['price']
+
         return Response(data)
 
 class AddVideo(APIView):
