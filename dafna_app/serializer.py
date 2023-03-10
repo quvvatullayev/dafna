@@ -7,7 +7,8 @@ from .models import (
     Cart,
     Video,
     Main_contacts,
-    Contact
+    Contact,
+    Prodouct_img,
 )
 
 class KatalogSerializer(serializers.ModelSerializer):
@@ -18,6 +19,11 @@ class KatalogSerializer(serializers.ModelSerializer):
 class ProdouctSerializers(serializers.ModelSerializer):
     class Meta:
         model = Prodouct
+        fields = '__all__'
+
+class ProdouctImgSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Prodouct_img
         fields = '__all__'
 
 class ProdouctTypeSerializers(serializers.ModelSerializer):

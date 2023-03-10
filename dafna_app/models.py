@@ -33,6 +33,13 @@ class Prodouct(models.Model):
     def __str__(self) -> str:
         return self.name
     
+class Prodouct_img(models.Model):
+    img = models.ImageField()
+    prodouct = models.ForeignKey(Prodouct, models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.prodouct.name + 'imges'
+    
 class Love(models.Model):
     prodouct = models.ForeignKey(Prodouct, models.CASCADE)
 
