@@ -944,17 +944,19 @@ class GetProdouctDetail(APIView):
         prodouct_img_filter = Prodouct_img.objects.filter(prodouct = id)
         prodouct_img = ProdouctImgSerializers(prodouct_img_filter, many = True)
         data = {
-            "id":prodouct.data['id'],
-            "name":prodouct.data['name'],
-            "discrpition":prodouct.data['discrpition'],
-            "img_url":prodouct.data['img_url'],
-            "imgs":prodouct_img.data,
-            "price":prodouct.data['price'],
-            "color":prodouct.data['color'],
-            "manufacturer":prodouct.data['manufacturer'],
-            "material":prodouct.data['material'],  
-            "like":prodouct.data['like'],
-            "prodouct_type":prodouct.data['prodouct_type'],
+            "prodouct":{
+                "id":prodouct.data['id'],
+                "name":prodouct.data['name'],
+                "discrpition":prodouct.data['discrpition'],
+                "img_url":prodouct.data['img_url'],
+                "imgs":prodouct_img.data,
+                "price":prodouct.data['price'],
+                "color":prodouct.data['color'],
+                "manufacturer":prodouct.data['manufacturer'],
+                "material":prodouct.data['material'],  
+                "like":prodouct.data['like'],
+                "prodouct_type":prodouct.data['prodouct_type'],
+            }
         }
         return Response(data)
 
