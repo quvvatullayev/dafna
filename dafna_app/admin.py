@@ -7,7 +7,8 @@ from .models import (
     Cart,
     Video,
     Main_contacts,
-    Contact
+    Contact,
+    Prodouct_img,    
 )
 
 # Register your models here.
@@ -19,5 +20,6 @@ admin.site.register([
     Cart,
     Video,
     Main_contacts,
-    Contact
+    Contact,
+    Prodouct_img,
     ])
