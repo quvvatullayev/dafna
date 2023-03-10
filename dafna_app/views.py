@@ -220,7 +220,7 @@ class AddProdouct(APIView):
             "img_url":str,
             "price":int,
             "like":bool,
-            "cart":bool,
+            "carts":bool,
             "color": str,
             "manufacturer":str,
             "material": str,
@@ -245,7 +245,7 @@ class UpdeateProdouct(APIView):
             "price": (option)int,
             "color": (option)str,
             "like": (option)bool,
-            "cart": (option)bool,
+            "carts": (option)bool,
             "manufacturer": (option)str,
             "material": (option)str,
             "prodouct_type": (option)int
@@ -259,7 +259,7 @@ class UpdeateProdouct(APIView):
             "price": int,
             "color":str,
             "like": bool,
-            "cart": bool,
+            "carts": bool,
             "manufacturer": str,
             "material": str,
             "prodouct_type": int
@@ -304,7 +304,7 @@ class GetProdouct(APIView):
                         "price": int,
                         "color": str,
                         "like": bool,
-                        "cart": bool,
+                        "carts": bool,
                         "manufacturer": str,
                         "material": str,
                         "prodouct_type": int
@@ -435,7 +435,7 @@ class AddCart(APIView):
         cart = CartSerializers(data=data)
         prodouct_filter = Prodouct.objects.get(id = data['prodouct'])
         prodouct = prodouct_filter
-        prodouct.cart = True
+        prodouct.carts = True
         prodouct.save()
         if cart.is_valid():
             cart.save()
@@ -451,7 +451,7 @@ class DeleteCart(APIView):
         cart = Cart.objects.get(id = id)
         prodouct_filter = Prodouct.objects.get(id = cart.prodouct.id)
         prodouct = prodouct_filter
-        prodouct.cart = False
+        prodouct.carts = False
         prodouct.save()
         cart.delete()
         return Response({"OK delete":"200"})
@@ -466,7 +466,7 @@ class DeleteAllCart(APIView):
 
         prodouct_filter = Prodouct.objects.get(id = id)
         prodouct = prodouct_filter
-        prodouct.cart = False
+        prodouct.carts = False
         prodouct.save()
         
         if cart_prodouct:
@@ -489,7 +489,7 @@ class GetCart(APIView):
                     "price": int,
                     "color": str,
                     "like":bool,
-                    "cart":bool,
+                    "carts":bool,
                     "manufacturer": str,
                     "material": str,
                     "prodouct_type": int
@@ -507,7 +507,6 @@ class GetCart(APIView):
             prodouct_filter = Prodouct.objects.get(id = i['prodouct'])
             prodouct = ProdouctSerializers(prodouct_filter, many = False)
             append_data = prodouct.data
-            pprint(append_data)
             data['price_sum'] += append_data['price']
             append_data['cart_id'] = i['id']
             data['carts'].append(append_data)
@@ -777,7 +776,8 @@ class Sort(APIView):
                     "price": int,
                     "color": str,
                     "manufacturer": int,
-                    "like":boole
+                    "like":boole,
+                    "carts": boole,
                     "material": str,
                     "prodouct_type": int
                 }
