@@ -39,6 +39,9 @@ class Prodouct_img(models.Model):
 
     def __str__(self) -> str:
         return self.prodouct.name + 'imges'
+
+class Imgs(models.Model):
+    imgs = models.ImageField()
     
 class Love(models.Model):
     prodouct = models.ForeignKey(Prodouct, models.CASCADE)

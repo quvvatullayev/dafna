@@ -9,6 +9,7 @@ from .models import (
     Main_contacts,
     Contact,
     Prodouct_img,
+    Imgs,
 )
 
 class KatalogSerializer(serializers.ModelSerializer):
@@ -24,6 +25,11 @@ class ProdouctSerializers(serializers.ModelSerializer):
 class ProdouctImgSerializers(serializers.ModelSerializer):
     class Meta:
         model = Prodouct_img
+        fields = '__all__'
+
+class ImgsSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Imgs
         fields = '__all__'
 
 class ProdouctTypeSerializers(serializers.ModelSerializer):

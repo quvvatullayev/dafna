@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.request import Request
 from rest_framework.response import Response
+from rest_framework.generics import ListAPIView
 from pprint import pprint
 from .models import (
     Katalog,
@@ -12,7 +13,8 @@ from .models import (
     Cart,
     Video,
     Main_contacts,
-    Contact
+    Contact,
+    Imgs,
 )
 from .serializer import(
     KatalogSerializer,
@@ -24,6 +26,7 @@ from .serializer import(
     MainContactsSerializers,
     ContactSerializers,
     ProdouctImgSerializers,
+    ImgsSerializers,
 )
 
 # Create your views here.
@@ -960,3 +963,40 @@ class GetProdouctDetail(APIView):
         }
         return Response(data)
 
+class AddImg(ListAPIView):
+    serializer_class = ImgsSerializers
+    queryset = Imgs.objects.all()
+
+class GetImg(APIView):
+    def get(self, request:Request, id):
+        """
+        input:get request
+        return:json->
+        {
+            "imgs": [
+                {
+                    "id": int,
+                    "imgs": str,
+                }
+            ]
+        }
+        """
+        imgs_filter = Imgs.objects.filter(prodouct = id)
+        imgs = ImgsSerializers(imgs_filter, many = True)
+        data = {
+            "imgs":imgs.data
+        }
+        return Response(data)
+    
+class DeleteImg(APIView):
+    def get(self, request:Request, id):
+        """
+        input:get request
+        return:json->
+        {
+            "OK delete": "200"
+        }
+        """
+        imgs_filter = Imgs.objects.get(id = id)
+        imgs_filter.delete()
+        return Response({"OK delete":"200"})

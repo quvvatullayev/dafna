@@ -37,6 +37,9 @@ from .views import(
     AddProdouctImg,
     DeleteProdouctImg,
     GetProdouctImg,
+    AddImg,
+    DeleteImg,
+    GetImg,
 )
 
 urlpatterns = [
@@ -77,4 +80,7 @@ urlpatterns = [
     path("add_prodouct_img/", AddProdouctImg.as_view()),
     path("delete_prodouct_img/<int:id>/", DeleteProdouctImg.as_view()),
     path("get_prodouct_img/<int:id>/", GetProdouctImg.as_view()),
+    path("add_img/", AddImg.as_view()),
+    path("delete_img/<int:id>/", DeleteImg.as_view()),
+    path("get_img/<int:id>/", GetImg.as_view()),
 ]
