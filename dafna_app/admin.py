@@ -8,7 +8,8 @@ from .models import (
     Video,
     Main_contacts,
     Contact,
-    Prodouct_img,    
+    Prodouct_img,  
+    Imgs,  
 )
 
 # Register your models here.
@@ -22,4 +23,5 @@ admin.site.register([
     Main_contacts,
     Contact,
     Prodouct_img,
+    Imgs,
     ])
