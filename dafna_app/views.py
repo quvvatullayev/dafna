@@ -963,9 +963,24 @@ class GetProdouctDetail(APIView):
         }
         return Response(data)
 
-class AddImg(ListAPIView):
-    serializer_class = ImgsSerializers
-    queryset = Imgs.objects.all()
+class AddImg(APIView):
+    def post(self, request:Request):
+        """
+        input:post request with json->
+        {
+            "imgs":str
+        }
+        return:json->
+        {
+            "id": int,
+            "imgs": str,
+        }
+        """
+        imgs = ImgsSerializers(data = request.data)
+        if imgs.is_valid():
+            imgs.save()
+            return Response(imgs.data)
+        return Response(imgs.errors)
 
 class GetImg(APIView):
     def get(self, request:Request, id):
