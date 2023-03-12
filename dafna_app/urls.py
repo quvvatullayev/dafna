@@ -82,5 +82,5 @@ urlpatterns = [
     path("get_prodouct_img/<int:id>/", GetProdouctImg.as_view()),
     path("add_img/", AddImg.as_view()),
     path("delete_img/<int:id>/", DeleteImg.as_view()),
-    path("get_img/<int:id>/", GetImg.as_view()),
+    path("get_img/", GetImg.as_view()),
 ]

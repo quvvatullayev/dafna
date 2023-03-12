@@ -983,7 +983,7 @@ class AddImg(APIView):
         return Response(imgs.errors)
 
 class GetImg(APIView):
-    def get(self, request:Request, id):
+    def get(self, request:Request):
         """
         input:get request
         return:json->
@@ -996,7 +996,7 @@ class GetImg(APIView):
             ]
         }
         """
-        imgs_filter = Imgs.objects.filter(prodouct = id)
+        imgs_filter = Imgs.objects.all()
         imgs = ImgsSerializers(imgs_filter, many = True)
         data = {
             "imgs":imgs.data
