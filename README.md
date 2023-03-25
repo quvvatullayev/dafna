@@ -43,6 +43,9 @@
 | GET  | <a href = "#sourt">`sort/<str:name>/`</a> | url to search for products to buy |
 | GET  | <a href = '#get_new_prodouct'>`get_new_prodouct`</a> | get new prodoucts on ten |
 | GET  | <a href = '#get_rescommentations'>`get_rescommentations`</a> | get rescommentations prodoucts on ten |
+| POST | <a href = '#add_main_img'>`add_main_img`</a> | add main img |
+| GET  | <a href = '#get_main_img'>`get_main_img`</a> | get main img |
+| GET  | <a href = '#delete_main_img'>`delete_main_img/<int:id>/`</a> | delete main img |
 
 <br>
 <br>
@@ -977,5 +980,65 @@
         input:get request dafna_app/delete_prodouct_img/id/
         return:json->{"OK delete":"200"}
 ```
+
+<a href = "#base">^ to the top ^</a>
+<hr>
+</div>
+
+<div id="add_main_img">
+
+**POST** ```dafna_app/add_main_img/<int:id>/```
+
+### url to add main img
+
+```python
+        
+        input:post request
+        {
+            "img_url": str,
+        }
+        return:json->
+        {
+            "id": int,
+            "img_url": str,
+        }
+```
+<a href = "#base">^ to the top ^</a>
+<hr>
+</div>
+
+<div id="get_main_img">
+
+**GET** ```dafna_app/get_main_img/```
+
+### url to get main img
+
+```python
+        
+        input:get request
+        return:json->
+        {
+            "id": int,
+            "img": str
+        }
+```
+<a href = "#base">^ to the top ^</a>
+<hr>
+</div>
+
+<div id="delete_main_img">
+
+**GET** ```dafna_app/delete_main_img/<int:id>/```
+
+### url to delete main img
+
+```python
+        
+        input:get request
+        return:json->{"OK delete":"200"}
+```
+<a href = "#base">^ to the top ^</a>
+<hr>
+
 ...
 

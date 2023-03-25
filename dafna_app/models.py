@@ -10,6 +10,9 @@ class Katalog(models.Model):
     def __str__(self) -> str:
         return self.name
     
+class ManiImg(models.Model):
+    img_url = models.ImageField()
+    
 class Prodouct_type(models.Model):
     name = models.CharField(max_length=225)
     img_url = models.ImageField()

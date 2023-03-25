@@ -138,3 +138,15 @@ urlpatterns += [
     path('get_cart/', GetCart.as_view()),
     path('delete_all_cart/<int:id>/', DeleteAllCart.as_view()),
 ]
+
+from .views.main_img import (
+    AddMainImg,
+    DeleteMainImg,
+    GetMainImg,
+)
+
+urlpatterns += [
+    path('add_main_img/', AddMainImg.as_view()),
+    path('delete_main_img/<int:id>/', DeleteMainImg.as_view()),
+    path('get_main_img/', GetMainImg.as_view()),
+]

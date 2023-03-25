@@ -10,11 +10,17 @@ from .models import (
     Contact,
     Prodouct_img,
     Imgs,
+    ManiImg,
 )
 
 class KatalogSerializer(serializers.ModelSerializer):
     class Meta:
         model = Katalog
+        fields = '__all__'
+
+class ManiImgSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = ManiImg
         fields = '__all__'
 
 class ProdouctSerializers(serializers.ModelSerializer):

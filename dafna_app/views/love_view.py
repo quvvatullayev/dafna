@@ -2,8 +2,6 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.request import Request
 from rest_framework.response import Response
-from base64 import b64decode
-from django.contrib.auth import authenticate
 from dafna_app.models import (
     Prodouct,
     Love,
@@ -27,39 +25,29 @@ class AddLove(APIView):
                 "prodouct": int product id
             } 
         """
-        auth = request.headers.get('Authorization')
-        token = auth.split(' ')[1]
-        auth = b64decode(token).decode('utf-8')
-        auth = auth.split(':')
-        username, password = auth
-        user = authenticate(username=username, password=password)
-
-        if user is not None:
-            data = request.data
-            love = LoveSerializers(data=data)
-            love_all = Love.objects.all()
-            love_all_data = LoveSerializers(love_all, many = True)
-            id = data['prodouct']
-            prodouct_filter = Prodouct.objects.get(id = id)
-            prodouct = prodouct_filter
-            if prodouct.like == True:
-                prodouct.like = False
-            else:
-                prodouct.like = True
-            prodouct.save()
-            prodouct_list = []
-            for i in love_all_data.data:
-                prodouct_list.append(i['prodouct'])
-            
-            if love.is_valid() and data['prodouct'] not in prodouct_list:
-                love.save()
-                return Response(love.data)
-            else:
-                love_filter = Love.objects.get(prodouct = data['prodouct'])
-                love_filter.delete()
-            return Response(love.errors)
+        data = request.data
+        love = LoveSerializers(data=data)
+        love_all = Love.objects.all()
+        love_all_data = LoveSerializers(love_all, many = True)
+        id = data['prodouct']
+        prodouct_filter = Prodouct.objects.get(id = id)
+        prodouct = prodouct_filter
+        if prodouct.like == True:
+            prodouct.like = False
         else:
-            return Response({"error":"user not found"})
+            prodouct.like = True
+        prodouct.save()
+        prodouct_list = []
+        for i in love_all_data.data:
+            prodouct_list.append(i['prodouct'])
+        
+        if love.is_valid() and data['prodouct'] not in prodouct_list:
+            love.save()
+            return Response(love.data)
+        else:
+            love_filter = Love.objects.get(prodouct = data['prodouct'])
+            love_filter.delete()
+        return Response(love.errors)
 
 class GetLove(APIView):
     def get(self, request:Request):
@@ -83,22 +71,12 @@ class GetLove(APIView):
             ]
         }
         """
-        auth = request.headers.get('Authorization')
-        token = auth.split(' ')[1]
-        auth = b64decode(token).decode('utf-8')
-        auth = auth.split(':')
-        username, password = auth
-        user = authenticate(username=username, password=password)
-
-        if user is not None:
-            love_filter = Prodouct.objects.filter(like = True)
-            love = ProdouctSerializers(love_filter, many = True)
-            data = {
-                'loves':love.data
-            }
-            return Response(data)
-        else:
-            return Response({"error":"user not found"})
+        love_filter = Prodouct.objects.filter(like = True)
+        love = ProdouctSerializers(love_filter, many = True)
+        data = {
+            'loves':love.data
+        }
+        return Response(data)
 
 class DeleteLove(APIView):
     def get(self, requeat:Request, id):
