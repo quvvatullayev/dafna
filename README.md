@@ -484,22 +484,24 @@
 ```python
     input:get request
     return:json->
-        {
-            "carts": [
-                {
-                    "id": int,
-                    "name": str,
-                    "discrpition": str,
-                    "img_url": str,
-                    "price": int,
-                    "color": str,
-                    "like": bool,
-                    "manufacturer": str,
-                    "material": str,
-                    "prodouct_type": int
-                }
-            ]
-        }
+    {
+        "carts": [
+            {
+                "id": int,
+                'prodouct':int
+                "name": str,
+                "discrpition": str,
+                "img_url": str,
+                "price": int,
+                "color": str,
+                "like":bool,
+                "carts":bool,
+                "manufacturer": str,
+                "material": str,
+                "prodouct_type": int
+            }
+        ]
+    }
 ```
 <a href = "#base">^ to the top ^</a> 
 <hr>

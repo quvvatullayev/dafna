@@ -82,6 +82,7 @@ class GetCart(APIView):
             "carts": [
                 {
                     "id": int,
+                    'prodouct':int
                     "name": str,
                     "discrpition": str,
                     "img_url": str,
