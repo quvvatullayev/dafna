@@ -42,13 +42,15 @@ class DeleteCart(APIView):
         input:get request /dafna_app/delete_cart/id/
         return:{"OK delete":"200"}
         """
+        print(id)
         cart_filter = Cart.objects.get(id = id)
         cart = CartSerializers(cart_filter)
         prodouct_filter = Prodouct.objects.get(id = cart.data['prodouct'])
         prodouct = prodouct_filter
         prodouct.carts = False
         prodouct.save()
-        if cart_filter:
+        print('hihihih')
+        if cart.data:
             cart_filter.delete()
             return Response({"OK delete":"200"})
         return Response({})
@@ -94,27 +96,34 @@ class GetCart(APIView):
             ]
         }
         """
+        cart_filter = Cart.objects.all()
+        cart = CartSerializers(cart_filter, many = True)
         prodouct_filter = Prodouct.objects.filter(carts = True)
         prodouct = ProdouctSerializers(prodouct_filter, many = True)
         data = {
             "price_sum":0,
             'carts':[]
         }
-        for i in prodouct.data:
-            append_data = {
-                "id":i['id'],
-                "name":i['name'],
-                "discrpition":i['discrpition'],
-                "img_url":i['img_url'],
-                "price":i['price'],
-                "color":i['color'],
-                "like":i['like'],
-                "carts":i['carts'],
-                "manufacturer":i['manufacturer'],
-                "material":i['material'],
-                "prodouct_type":i['prodouct_type']
-            }
-            data['carts'].append(append_data)
-            data['price_sum'] += i['price']
+        
+        for i in cart.data:
+            for j in prodouct.data:
+                if i['prodouct'] == j['id']:
+                    cart_appedn = {
+                        "id": i['id'],
+                        'prodouct': i['prodouct'],
+                        "name": j['name'],
+                        "discrpition": j['discrpition'],
+                        "img_url": j['img_url'],
+                        "price": j['price'],
+                        "color": j['color'],
+                        "like":j['like'],
+                        "carts":j['carts'],
+                        "manufacturer": j['manufacturer'],
+                        "material": j['material'],
+                        "prodouct_type": j['prodouct_type']
+                        
+                    }
+                    data['carts'].append(cart_appedn)
+                    data['price_sum'] += j['price']
 
         return Response(data)
