@@ -42,13 +42,16 @@ class DeleteCart(APIView):
         input:get request /dafna_app/delete_cart/id/
         return:{"OK delete":"200"}
         """
-        cart = Cart.objects.get(id = id)
-        prodouct_filter = Prodouct.objects.get(id = cart.prodouct.id)
+        cart_filter = Cart.objects.get(id = id)
+        cart = CartSerializers(cart_filter)
+        prodouct_filter = Prodouct.objects.get(id = cart.data['prodouct'])
         prodouct = prodouct_filter
         prodouct.carts = False
         prodouct.save()
-        cart.delete()
-        return Response({"OK delete":"200"})
+        if cart_filter:
+            cart_filter.delete()
+            return Response({"OK delete":"200"})
+        return Response({})
     
 class DeleteAllCart(APIView):
     def get(self, request:Request, id):
