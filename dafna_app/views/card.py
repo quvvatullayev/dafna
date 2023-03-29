@@ -42,7 +42,7 @@ class DeleteCart(APIView):
         input:get request /dafna_app/delete_cart/id/
         return:{"OK delete":"200"}
         """
-        cart_filter = Cart.objects.filter(id = id)
+        cart_filter = Cart.objects.filter(prodouct = id)
         cart_filter = cart_filter.first()
         
         if cart_filter:
