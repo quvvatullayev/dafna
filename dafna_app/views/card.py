@@ -131,7 +131,7 @@ class GetCart(APIView):
             append_prodouct['price_sum'] = prodouct['price'] * pk_prodouct[pk]
             append_prodouct['prodouct_count'] = pk_prodouct[pk]
             append_prodouct["prodouct"].append(prodouct)
-            data['cart_price_sum'] += prodouct['price']
+            data['cart_price_sum'] += prodouct['price']*pk_prodouct[pk]
             data["cart"].append(append_prodouct)
 
         return Response(data=data)
