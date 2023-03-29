@@ -482,23 +482,30 @@
 
 
 ```python
-    input:get request
+    input:get request /dafna_app/get_cart/
     return:json->
     {
-        "carts": [
-            {
-                "id": int,
-                'prodouct':int
-                "name": str,
-                "discrpition": str,
-                "img_url": str,
-                "price": int,
-                "color": str,
-                "like":bool,
-                "carts":bool,
-                "manufacturer": str,
-                "material": str,
-                "prodouct_type": int
+        "cart_price_sum":int,
+        "cart":[
+            {   
+                "price_sum":int,
+                "prodouct_count":int,
+                "prodouct":[
+                    {
+                        "id": int,
+                        "prodouct":int
+                        "name": str,
+                        "discrpition": str,
+                        "img_url": str,
+                        "price": int,
+                        "color": str,
+                        "like":bool,
+                        "carts":bool,
+                        "manufacturer": str,
+                        "material": str,
+                        "prodouct_type": int
+                    }
+                ]
             }
         ]
     }

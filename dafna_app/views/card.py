@@ -75,56 +75,64 @@ class DeleteAllCart(APIView):
 
 class GetCart(APIView):
     def get(self, request:Request):
+        # Each product is in one, but how many there are in total is written in the cart
         """
-        input:get request
-        return:json->
-        {
-            "carts": [
-                {
-                    "id": int,
-                    'prodouct':int
-                    "name": str,
-                    "discrpition": str,
-                    "img_url": str,
-                    "price": int,
-                    "color": str,
-                    "like":bool,
-                    "carts":bool,
-                    "manufacturer": str,
-                    "material": str,
-                    "prodouct_type": int
-                }
-            ]
-        }
+            input:get request /dafna_app/get_cart/
+            return:json->
+            {
+                "cart_price_sum":int,
+                "cart":[
+                    {   
+                        "price_sum":int,
+                        "prodouct_count":int,
+                        "prodouct":[
+                            {
+                                "id": int,
+                                "prodouct":int
+                                "name": str,
+                                "discrpition": str,
+                                "img_url": str,
+                                "price": int,
+                                "color": str,
+                                "like":bool,
+                                "carts":bool,
+                                "manufacturer": str,
+                                "material": str,
+                                "prodouct_type": int
+                            }
+                        ]
+                    }
+                ]
+            }
         """
-        cart_filter = Cart.objects.all()
-        cart = CartSerializers(cart_filter, many = True)
-        prodouct_filter = Prodouct.objects.filter(carts = True)
-        prodouct = ProdouctSerializers(prodouct_filter, many = True)
+        cart = Cart.objects.all()
+        cart = CartSerializers(cart, many=True)
+        pk_prodouct = {}
+        for i in cart.data:
+            if pk_prodouct.get(i['prodouct']):
+                pk_prodouct[i['prodouct']] += 1
+            else:
+                pk_prodouct[i['prodouct']] = 1
+    
         data = {
-            "price_sum":0,
-            'carts':[]
+            "cart_price_sum":0,
+            "cart":[]
         }
         
-        for i in cart.data:
-            for j in prodouct.data:
-                if i['prodouct'] == j['id']:
-                    cart_appedn = {
-                        "id": i['id'],
-                        'prodouct': i['prodouct'],
-                        "name": j['name'],
-                        "discrpition": j['discrpition'],
-                        "img_url": j['img_url'],
-                        "price": j['price'],
-                        "color": j['color'],
-                        "like":j['like'],
-                        "carts":j['carts'],
-                        "manufacturer": j['manufacturer'],
-                        "material": j['material'],
-                        "prodouct_type": j['prodouct_type']
-                        
-                    }
-                    data['carts'].append(cart_appedn)
-                    data['price_sum'] += j['price']
+        for pk in pk_prodouct:
+            append_prodouct = {
+                "price_sum":0,
+                "prodouct_count":0,
+                "prodouct":[]
+            }
+            prodouct = Prodouct.objects.get(id = pk)
+            prodouct = ProdouctSerializers(prodouct)
+            prodouct = prodouct.data
+            append_prodouct['price_sum'] = prodouct['price'] * pk_prodouct[pk]
+            append_prodouct['prodouct_count'] = pk_prodouct[pk]
+            append_prodouct["prodouct"].append(prodouct)
+            data['cart_price_sum'] += prodouct['price']
+            data["cart"].append(append_prodouct)
 
-        return Response(data)
+        return Response(data=data)
+        
