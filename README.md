@@ -46,6 +46,9 @@
 | POST | <a href = '#add_main_img'>`add_main_img`</a> | add main img |
 | GET  | <a href = '#get_main_img'>`get_main_img`</a> | get main img |
 | GET  | <a href = '#delete_main_img'>`delete_main_img/<int:id>/`</a> | delete main img |
+| POST | <a href = '#create_user'>`create_user`</a> | create user |
+| POST | <a href = '#login_user'>`login_user`</a> | login |
+| POST  | <a href = '#logout_user'>`logout_user`</a> | logout |
 
 <br>
 <br>
@@ -1048,6 +1051,72 @@
 ```
 <a href = "#base">^ to the top ^</a>
 <hr>
+
+</div>
+
+<div id="create_user">
+
+**POST** ```dafna_app/create_user/```
+
+### url to create user
+
+```python
+        
+        input:post request
+        {
+            "username": str,
+            "password": str,
+        }
+        return:json->
+        {
+            "token": str,
+        }
+```
+
+<a href = "#base">^ to the top ^</a>
+<hr>
+</div>
+
+<div id="login_user">
+
+**POST** ```dafna_app/login_user/```
+
+### url to login user
+
+```python
+        
+        input:post request
+        {
+            "username": str,
+            "password": str,
+        }
+        return:json->
+        {
+            "token": str,
+        }
+```
+<a href = "#base">^ to the top ^</a>
+<hr>
+</div>
+
+<div id="logout_user">
+
+**POST** ```dafna_app/logout_user/```
+
+### url to logout user
+
+```python
+        
+        input:post request
+            headers = {
+            'Authorization': 'Token 5f0b15f35a679f02794d7da9912fafc7c2dd54a0',
+            'Cookie': 'csrftoken=9zZVkUrbNqlxi3512iYE7XDFwDWHhSp7'
+            }
+        return:json->{"OK logout":"200"}
+```
+<a href = "#base">^ to the top ^</a>
+<hr>
+</div>
 
 ...
 

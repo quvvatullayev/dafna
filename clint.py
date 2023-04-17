@@ -1,6 +1,6 @@
 import requests
 
-url = "http://127.0.0.1:8000/dafna_app/get_cart/"
+url = "http://127.0.0.1:8000/dafna_app/get_love/"
 
 payload={}
 headers = {
@@ -10,4 +10,4 @@ headers = {
 
 response = requests.request("GET", url, headers=headers, data=payload)
 
-print(response.json())
+print(response.json)
