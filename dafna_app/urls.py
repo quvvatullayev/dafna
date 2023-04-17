@@ -150,3 +150,15 @@ urlpatterns += [
     path('delete_main_img/<int:id>/', DeleteMainImg.as_view()),
     path('get_main_img/', GetMainImg.as_view()),
 ]
+
+from .views.user_authentication import(
+    CreateUser,
+    LoginUser,
+    LogoutUser,
+)
+
+urlpatterns += [
+    path('create_user/', CreateUser.as_view()),
+    path('login_user/', LoginUser.as_view()),
+    path('logout_user/', LogoutUser.as_view()),
+]
