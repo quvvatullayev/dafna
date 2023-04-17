@@ -18,6 +18,8 @@ from dafna_app.serializer import(
 # Create your views here.
 
 class AddCart(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
     def post(self, request:Request):
         """
         input:json->
@@ -30,6 +32,8 @@ class AddCart(APIView):
             }
         """
         data = request.data
+        user = request.user
+        data['user'] = user.id
         cart = CartSerializers(data=data)
         prodouct_filter = Prodouct.objects.get(id = data['prodouct'])
         prodouct = prodouct_filter
@@ -41,6 +45,8 @@ class AddCart(APIView):
         return Response(cart.errors)
 
 class DeleteCart(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
     def get(self, request:Request, id):
         """
         input:get request /dafna_app/delete_cart/id/
@@ -60,12 +66,16 @@ class DeleteCart(APIView):
         return Response({})
     
 class DeleteAllCart(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
     def get(self, request:Request, id):
         """
         input:get request /dafna_app/delete_all_cart/id/
         return:{"OK delete":"200"}
         """
-        cart_prodouct = Cart.objects.filter(prodouct = id)
+        user = request.user
+        cart_user = Cart.objects.filter(user = user).all()
+        cart_prodouct = cart_user.filter(prodouct = id)
 
         prodouct_filter = Prodouct.objects.get(id = id)
         prodouct = prodouct_filter
@@ -78,6 +88,8 @@ class DeleteAllCart(APIView):
         return Response({})
 
 class GetCart(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
     def get(self, request:Request):
         # Each product is in one, but how many there are in total is written in the cart
         """
@@ -109,7 +121,8 @@ class GetCart(APIView):
                 ]
             }
         """
-        cart = Cart.objects.all()
+        user = request.user
+        cart = Cart.objects.filter(user = user).all()
         cart = CartSerializers(cart, many=True)
         pk_prodouct = {}
         for i in cart.data:
