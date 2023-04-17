@@ -17,6 +17,8 @@ from dafna_app.serializer import(
 # Create your views here.
 
 class AddLove(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
     def post(self, request:Request):
         """input:json->
             {
@@ -29,8 +31,10 @@ class AddLove(APIView):
             } 
         """
         data = request.data
+        user = request.user
+        data['user'] = user.id
         love = LoveSerializers(data=data)
-        love_all = Love.objects.all()
+        love_all = Love.objects.filter(user = user).all()
         love_all_data = LoveSerializers(love_all, many = True)
         id = data['prodouct']
         prodouct_filter = Prodouct.objects.get(id = id)
@@ -53,6 +57,8 @@ class AddLove(APIView):
         return Response(love.errors)
 
 class GetLove(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
     def get(self, request:Request):
         """
         input:get request
@@ -74,19 +80,26 @@ class GetLove(APIView):
             ]
         }
         """
-        love_filter = Prodouct.objects.filter(like = True)
-        love = ProdouctSerializers(love_filter, many = True)
-        data = {
-            'loves':love.data
-        }
+        user = request.user
+        love_filter = Love.objects.filter(user = user).all()
+        love = LoveSerializers(love_filter, many = True)
+        data = {"loves":[]}
+        for i in love.data:
+            prodouct = Prodouct.objects.get(id = i['prodouct'])
+            prodouct_data = ProdouctSerializers(prodouct)
+            prodouct_data = prodouct_data.data
+            prodouct_data['love_id'] = i['id']
+            data['loves'].append(prodouct_data)
         return Response(data)
 
 class DeleteLove(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
     def get(self, requeat:Request, id):
         """
         input:get request /dafna_app/delete_love/id/
         return:{"OK delete":"200"}
         """
-        love = Love.objects.get(id=id)
+        love = Love.objects.get(id = id)
         love.delete()
         return Response({"OK delete":"200"})
