@@ -49,12 +49,14 @@ class Imgs(models.Model):
     
 class Love(models.Model):
     prodouct = models.ForeignKey(Prodouct, models.CASCADE)
+    user = models.ForeignKey(User, models.CASCADE)
 
     def __str__(self) -> str:
         return self.prodouct.name
     
 class Cart(models.Model):
     prodouct = models.ForeignKey(Prodouct, models.CASCADE)
+    user = models.ForeignKey(User, models.CASCADE)
 
     def __str__(self) -> str:
         return self.prodouct.name
