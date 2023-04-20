@@ -30,7 +30,7 @@ class LoginUser(APIView):
         password = request.data.get('password')
         user = User.objects.get(username=username)
         if user.check_password(password):
-            token = Token.objects.create(user=user)
+            token = Token.objects.get_or_create(user=user)
             return Response({'token': token.key})
         else:
             return Response({'error': 'Wrong credentials'})
