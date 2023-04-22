@@ -12,8 +12,10 @@ class CreateUser(APIView):
         username = data.get('username')
         password = data.get('password')
         user = User.objects.create(username=username, password=password)
-        token = Token.objects.create(user=user)
-        return Response({'token': token.key})
+        if user.check_password(password):
+            token = Token.objects.get_or_create(user=user)
+            return Response({'token': token.key})
+        return Response({'error': 'Something went wrong'})
     
 class LogoutUser(APIView):
     authentication_classes = [TokenAuthentication]
