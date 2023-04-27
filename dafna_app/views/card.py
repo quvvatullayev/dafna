@@ -19,7 +19,6 @@ from dafna_app.serializer import(
 
 class AddCart(APIView):
     authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
     def post(self, request:Request):
         """
         input:json->
@@ -46,7 +45,6 @@ class AddCart(APIView):
 
 class DeleteCart(APIView):
     authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
     def get(self, request:Request, id):
         """
         input:get request /dafna_app/delete_cart/id/
@@ -67,7 +65,6 @@ class DeleteCart(APIView):
     
 class DeleteAllCart(APIView):
     authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
     def get(self, request:Request, id):
         """
         input:get request /dafna_app/delete_all_cart/id/
@@ -89,7 +86,6 @@ class DeleteAllCart(APIView):
 
 class GetCart(APIView):
     authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
     def get(self, request:Request):
         # Each product is in one, but how many there are in total is written in the cart
         """

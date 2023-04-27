@@ -18,7 +18,6 @@ from dafna_app.serializer import(
 
 class AddLove(APIView):
     authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
     def post(self, request:Request):
         """input:json->
             {
@@ -58,7 +57,6 @@ class AddLove(APIView):
 
 class GetLove(APIView):
     authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
     def get(self, request:Request):
         """
         input:get request
@@ -94,7 +92,6 @@ class GetLove(APIView):
 
 class DeleteLove(APIView):
     authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
     def get(self, requeat:Request, id):
         """
         input:get request /dafna_app/delete_love/id/

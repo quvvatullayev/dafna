@@ -19,7 +19,6 @@ class CreateUser(APIView):
     
 class LogoutUser(APIView):
     authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
     def post(self, request: Request) -> Response:
         user = request.user
         token = Token.objects.get(user=user)
